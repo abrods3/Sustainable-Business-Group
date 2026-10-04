@@ -2,7 +2,8 @@
    EMORY SUSTAINABLE BUSINESS GROUP — SHARED SCRIPT
    ============================================================================
    Every page loads this file. It:
-     1. Builds the header (menu) and footer, so they only need editing HERE.
+     1. Builds the header (page tabs only) and footer, so they only need
+        editing HERE.
      2. Handles the mobile menu and the header shadow on scroll.
      3. Fades sections in as you scroll (optional).
      4. Shows initials in place of any headshot photo that is missing.
@@ -25,11 +26,9 @@ const PAGES = [
   { id: "clients",  label: "Our Clients", href: "clients.html" },
   { id: "team",     label: "Our Team",    href: "team.html"    },
   { id: "events",   label: "Events",      href: "events.html"  },
+  { id: "join",     label: "Join SBG",    href: "join.html"    },
   { id: "contact",  label: "Contact",     href: "contact.html" }
 ];
-
-// The highlighted button at the end of the menu
-const MENU_BUTTON = { id: "join", label: "Join SBG", href: "join.html" };
 
 const CONTACT_EMAIL = "emorysustainablebusiness@gmail.com";
 const INSTAGRAM_URL = "https://www.instagram.com/emorysbg/";
@@ -41,11 +40,11 @@ const LINKEDIN_URL  = "";   // Add the LinkedIn page URL here. Left blank, the i
 const currentPage = document.body.dataset.page;
 
 // Builds an <a> tag for a page, marking it active if it is the current page
-function navLink(page, extraClass) {
-  const classes = [extraClass, page.id === currentPage ? "is-active" : ""].filter(Boolean).join(" ");
-  return `<a href="${page.href}"${classes ? ` class="${classes}"` : ""}>${page.label}</a>`;
+function navLink(page) {
+  return `<a href="${page.href}"${page.id === currentPage ? ' class="is-active"' : ""}>${page.label}</a>`;
 }
 
+// SBG name and logo. Used in the footer only; the header shows just the page tabs.
 const LOGO = `
   <a href="index.html" class="logo" aria-label="Emory Sustainable Business Group home">
     <!-- To use a logo image, replace the next line with: <img src="images/logo.png" alt="" height="40"> -->
@@ -63,11 +62,9 @@ const ICONS = {
 document.body.insertAdjacentHTML("afterbegin", `
   <header class="site-header">
     <div class="container">
-      ${LOGO}
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">${ICONS.menu}</button>
       <nav class="nav" id="site-nav" aria-label="Main">
-        ${PAGES.filter(p => p.id !== "home").map(p => navLink(p)).join("")}
-        ${navLink(MENU_BUTTON, "btn btn--primary")}
+        ${PAGES.map(navLink).join("")}
       </nav>
     </div>
   </header>`);
@@ -92,7 +89,7 @@ document.body.insertAdjacentHTML("beforeend", `
         <div>
           <h4>Get Involved</h4>
           <ul>
-            <li>${navLink(MENU_BUTTON)}</li>
+            <li><a href="join.html">Join SBG</a></li>
             <li><a href="clients.html#work-with-us">Become a Client</a></li>
             <li><a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></li>
           </ul>

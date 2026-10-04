@@ -184,7 +184,8 @@ img { max-width: 100%; display: block; }
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .site-header.is-scrolled { border-color: var(--color-line); box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
-.site-header .container { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+/* The header holds only the page tabs, centered */
+.site-header .container { height: 100%; display: flex; align-items: center; justify-content: center; }
 
 .logo { display: flex; align-items: center; gap: 12px; color: var(--color-forest); }
 .logo:hover { text-decoration: none; }
@@ -197,16 +198,15 @@ img { max-width: 100%; display: block; }
 .logo-text { font-weight: 600; font-size: 0.98rem; line-height: 1.2; }
 .logo-text small { display: block; font-weight: 400; font-size: 0.78rem; color: var(--color-muted); }
 
-.nav { display: flex; align-items: center; gap: 28px; }
+.nav { display: flex; align-items: center; gap: 36px; }
 .nav a { color: var(--color-ink); font-size: 0.93rem; font-weight: 500; position: relative; }
 .nav a:hover { color: var(--color-sage); text-decoration: none; }
 /* Underline under the link for the page you are on */
 .nav a.is-active { color: var(--color-forest); }
-.nav a.is-active:not(.btn)::after {
+.nav a.is-active::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: -6px;
   height: 2px; background: var(--color-sage); border-radius: 2px;
 }
-.nav .btn { color: var(--color-white); padding: 10px 22px; }
 
 .nav-toggle { display: none; background: none; border: 0; padding: 8px; cursor: pointer; color: var(--color-forest); }
 .nav-toggle svg { width: 28px; height: 28px; }
@@ -463,6 +463,7 @@ img { max-width: 100%; display: block; }
   .footer-grid > :first-child { grid-column: 1 / -1; }
 
   /* Collapse the nav into a drop-down menu */
+  .site-header .container { justify-content: flex-end; }   /* menu icon on the right */
   .nav-toggle { display: block; }
   .nav {
     position: absolute; top: var(--header-h); left: 0; right: 0;
@@ -473,8 +474,8 @@ img { max-width: 100%; display: block; }
   }
   .nav.is-open { display: flex; }
   .nav a { padding: 14px 0; border-bottom: 1px solid var(--color-line); }
-  .nav a.is-active:not(.btn)::after { display: none; }
-  .nav .btn { margin-top: 16px; text-align: center; border-bottom: 0; }
+  .nav a:last-child { border-bottom: 0; }
+  .nav a.is-active::after { display: none; }
 }
 
 @media (max-width: 640px) {
