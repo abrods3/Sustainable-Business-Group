@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  HOME PAGE  (index.html)
+  ============================================================================
+  HOW THIS SITE IS PUT TOGETHER
+    - Each page is its own .html file: index (Home), about, clients, team,
+      events, join, contact.
+    - All pages share one stylesheet (assets/css/styles.css) and one script
+      (assets/js/site.js).
+    - The menu and footer are written once, in assets/js/site.js. To add or
+      remove a page from the menu, edit the PAGES list at the top of that file.
+
+  EDITING A PAGE
+    - Each block of content is wrapped in comments:
+        ===== SECTION: NAME =====   ...   ===== END SECTION: NAME =====
+      Delete everything between the two comments to remove that section.
+    - Anything marked [PLACEHOLDER] needs real information filled in.
+
+  ADDING A NEW PAGE
+    1. Copy any page (events.html is the simplest) and rename it.
+    2. Change the <title> and the data-page="..." value on <body>.
+    3. Add a line for it to the PAGES list in assets/js/site.js.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emory Sustainable Business Group</title>
+  <meta name="description" content="Emory's sustainability-oriented consulting organization. Pro-bono consulting for sustainable businesses, plus education and events for Emory undergraduates." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<!-- data-page tells the menu which link to underline. It must match an id in site.js. -->
+<body data-page="home">
+  <!-- The header and menu are added here automatically by assets/js/site.js -->
+
+  <main>
+
+    <!-- ===== SECTION: HERO ===== -->
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">Emory University</span>
+        <h1>Emory Sustainable <em>Business Group</em></h1>
+        <p class="lead">
+          Emory's premier sustainability-oriented consulting organization, using business
+          as a force for environmental progress.
+        </p>
+        <div class="hero-actions">
+          <a href="join.html" class="btn btn--light">Join SBG</a>
+          <a href="clients.html#work-with-us" class="btn btn--outline-light">Work With Us</a>
+        </div>
+      </div>
+      <!-- Decorative leaf outline. Safe to delete. -->
+      <svg class="hero-leaf" viewBox="0 0 200 200" fill="none" stroke="#ffffff" stroke-width="1.5" aria-hidden="true">
+        <path d="M30 170C30 90 80 30 170 30c0 90-60 140-140 140Z"/>
+        <path d="M30 170C70 130 110 90 150 50"/>
+        <path d="M70 130l-6-30M90 110l-4-34M110 90l-2-30M70 130l30 4M90 110l32 2M110 90l30 0"/>
+      </svg>
+    </section>
+    <!-- ===== END SECTION: HERO ===== -->
+
+
+    <!-- ===== SECTION: STATS =====
+         Update these numbers each year. -->
+    <section class="stats" aria-label="SBG in numbers">
+      <div class="container">
+        <div class="grid grid-3">
+          <div>
+            <div class="stat-number">150+</div>
+            <div class="stat-label">General body members</div>
+          </div>
+          <div>
+            <div class="stat-number">13</div>
+            <div class="stat-label">Students on the executive board</div>
+          </div>
+          <div>
+            <div class="stat-number">10</div>
+            <div class="stat-label">Professionals on our board of directors</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== END SECTION: STATS ===== -->
+
+
+    <!-- ===== SECTION: INTRO ===== -->
+    <section class="section">
+      <div class="container split">
+        <div class="reveal">
+          <span class="eyebrow">Who We Are</span>
+          <h2>Consulting and education, run by students.</h2>
+        </div>
+        <div class="reveal">
+          <p>
+            SBG provides pro-bono consulting to sustainability-focused companies and to
+            organizations working to bring sustainable practices into their operations.
+            Our clients range from Atlanta startups to Fortune 500 companies.
+          </p>
+          <p>
+            We also run a Consultant Fellow program and a speaker series, so that students
+            from any major can learn about consulting and careers in sustainability.
+          </p>
+          <a href="about.html" class="btn btn--primary">More About Us</a>
+        </div>
+      </div>
+    </section>
+    <!-- ===== END SECTION: INTRO ===== -->
+
+
+    <!-- ===== SECTION: PAGE LINKS =====
+         Shortcut cards to other pages. Remove a card if you remove its page. -->
+    <section class="section section--sand">
+      <div class="container">
+        <div class="grid grid-3">
+          <a href="clients.html" class="card link-card reveal">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>
+            </div>
+            <h3>Our Clients</h3>
+            <p>Current engagements and past work, including our project with Delta Air Lines.</p>
+            <span class="more">See projects &rarr;</span>
+          </a>
+          <a href="team.html" class="card link-card reveal">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.5a5 5 0 0 1 5.5 5"/></svg>
+            </div>
+            <h3>Our Team</h3>
+            <p>The executive board and the board of directors.</p>
+            <span class="more">Meet the team &rarr;</span>
+          </a>
+          <a href="events.html" class="card link-card reveal">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+            </div>
+            <h3>Events</h3>
+            <p>Speaker series, Consultant Fellow sessions and general body meetings.</p>
+            <span class="more">View events &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- ===== END SECTION: PAGE LINKS ===== -->
+
+
+    <!-- ===== SECTION: JOIN BANNER ===== -->
+    <section class="section cta">
+      <div class="container split">
+        <div class="reveal">
+          <span class="eyebrow">Get Involved</span>
+          <h2>Open to all Emory and Oxford undergraduates.</h2>
+        </div>
+        <div class="reveal">
+          <p>You don't need to be a business major. Members come from Business, Environmental Sciences and many other programs.</p>
+          <div class="cta-actions">
+            <a href="join.html" class="btn btn--light">How to Join</a>
+            <a href="contact.html" class="btn btn--outline-light">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== END SECTION: JOIN BANNER ===== -->
+
+  </main>
+
+  <!-- The footer is added here automatically by assets/js/site.js -->
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
