@@ -30,6 +30,10 @@ const PAGES = [
   { id: "contact",  label: "Contact",     href: "contact.html" }
 ];
 
+// SBG logo image, shown in the footer. Save your logo file at this path
+// (or change the path to match your file). Until the file exists, nothing shows.
+const LOGO_IMAGE = "images/logo.png";
+
 const CONTACT_EMAIL = "emorysustainablebusiness@gmail.com";
 const INSTAGRAM_URL = "https://www.instagram.com/emorysbg/";
 const LINKEDIN_URL  = "";   // Add the LinkedIn page URL here. Left blank, the icon is hidden.
@@ -47,8 +51,7 @@ function navLink(page) {
 // SBG name and logo. Used in the footer only; the header shows just the page tabs.
 const LOGO = `
   <a href="index.html" class="logo" aria-label="Emory Sustainable Business Group home">
-    <!-- To use a logo image, replace the next line with: <img src="images/logo.png" alt="" height="40"> -->
-    <span class="logo-mark">SBG</span>
+    <img class="logo-img" src="${LOGO_IMAGE}" alt="SBG logo" onerror="this.remove()">
     <span class="logo-text">Sustainable Business Group<small>Emory University</small></span>
   </a>`;
 

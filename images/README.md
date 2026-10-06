@@ -2,6 +2,7 @@
 
 | Folder      | What goes here                        | File name example          |
 |-------------|---------------------------------------|----------------------------|
+| (top level) | SBG logo, used in the footer          | `logo.png`                 |
 | `team/`     | Executive board headshots (square)    | `tamryn-weiss.jpg`         |
 | `board/`    | Board of directors headshots (square) | `alex-urist.jpg`           |
 | `clients/`  | Client logos                          | `delta.png`                |

@@ -189,12 +189,8 @@ img { max-width: 100%; display: block; }
 
 .logo { display: flex; align-items: center; gap: 12px; color: var(--color-forest); }
 .logo:hover { text-decoration: none; }
-.logo-mark {
-  width: 40px; height: 40px; border-radius: 10px;
-  background: var(--color-forest); color: var(--color-white);
-  display: grid; place-items: center;
-  font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem;
-}
+/* Logo image (file path is set in assets/js/site.js). Change the height to resize it. */
+.logo-img { height: 48px; width: auto; }
 .logo-text { font-weight: 600; font-size: 0.98rem; line-height: 1.2; }
 .logo-text small { display: block; font-weight: 400; font-size: 0.78rem; color: var(--color-muted); }
 
@@ -428,7 +424,6 @@ img { max-width: 100%; display: block; }
 .site-footer a { color: rgba(255,255,255,0.7); }
 .site-footer a:hover { color: var(--color-white); }
 .site-footer .logo { color: var(--color-white); margin-bottom: 16px; }
-.site-footer .logo-mark { background: var(--color-sage); }
 .site-footer .logo-text small { color: rgba(255,255,255,0.6); }
 .socials { display: flex; gap: 12px; margin-top: 20px; }
 .socials a { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(255,255,255,0.2); }
