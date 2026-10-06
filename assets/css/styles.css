@@ -309,7 +309,10 @@ img { max-width: 100%; display: block; }
   position: absolute; inset: 0; display: grid; place-items: center;
   font-family: var(--font-heading); font-size: 2.3rem; color: var(--color-sage);
 }
-.avatar img { position: relative; width: 100%; height: 100%; object-fit: cover; }
+/* Photos are cut to a square from slightly above center, so uncropped portrait
+   photos keep the top of the head. For an even look across the team, crop new
+   photos with tools/crop_headshots.py (see images/README.md). */
+.avatar img { position: relative; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
 
 .person h3   { font-size: 1.08rem; margin-bottom: 2px; }
 .person .role { color: var(--color-muted); font-size: 0.9rem; margin: 0 0 4px; }
