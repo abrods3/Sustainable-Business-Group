@@ -90,7 +90,7 @@ document.body.insertAdjacentHTML("beforeend", `
           <h4>Get Involved</h4>
           <ul>
             <li><a href="join.html">Join SBG</a></li>
-            <li><a href="clients.html#work-with-us">Become a Client</a></li>
+            <li><a href="contact.html">Become a Client</a></li>
             <li><a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></li>
           </ul>
         </div>
