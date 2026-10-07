@@ -30,8 +30,8 @@ const PAGES = [
   { id: "contact",  label: "Contact",     href: "contact.html" }
 ];
 
-// SBG logo image, shown in the footer. Save your logo file at this path
-// (or change the path to match your file). Until the file exists, nothing shows.
+// SBG logo files. The black logo is used in the header (light background),
+// the white logo in the footer and on the home page banner (dark backgrounds).
 const WHITE_LOGO_IMAGE = "images/white-logo.png";
 const BLACK_LOGO_IMAGE = "images/black-logo.png";
 
@@ -48,19 +48,13 @@ function navLink(page) {
   return `<a href="${page.href}"${page.id === currentPage ? ' class="is-active"' : ""}>${page.label}</a>`;
 }
 
-// SBG name and logo. Used in the footer only; the header shows just the page tabs.
-const WHITE_LOGO = `
+// Builds the SBG logo as a link to the home page
+function logoLink(imageFile) {
+  return `
   <a href="index.html" class="logo" aria-label="Emory Sustainable Business Group home">
-    <img class="logo-img" src="${WHITE_LOGO_IMAGE}" alt="SBG logo" onerror="this.remove()">
-    <span class="logo-text">Sustainable Business Group<small>Emory University</small></span>
+    <img class="logo-img" src="${imageFile}" alt="Emory Sustainable Business Group" onerror="this.remove()">
   </a>`;
-  
-
-const BLACK_LOGO = `
-  <a href="index.html" class="logo" aria-label="Emory Sustainable Business Group home">
-    <img class="logo-img" src="${BLACK_LOGO_IMAGE}" alt="SBG logo" onerror="this.remove()">
-    <span class="logo-text">Sustainable Business Group<small>Emory University</small></span>
-  </a>`;
+}
 
 const ICONS = {
   menu:      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
@@ -72,6 +66,7 @@ const ICONS = {
 document.body.insertAdjacentHTML("afterbegin", `
   <header class="site-header">
     <div class="container">
+      ${logoLink(BLACK_LOGO_IMAGE)}
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">${ICONS.menu}</button>
       <nav class="nav" id="site-nav" aria-label="Main">
         ${PAGES.map(navLink).join("")}
@@ -84,7 +79,7 @@ document.body.insertAdjacentHTML("beforeend", `
     <div class="container">
       <div class="footer-grid">
         <div>
-          ${WHITE_LOGO}
+          ${logoLink(WHITE_LOGO_IMAGE)}
           <div class="socials">
             <a href="${INSTAGRAM_URL}" target="_blank" rel="noopener" aria-label="Instagram">${ICONS.instagram}</a>
             ${LINKEDIN_URL ? `<a href="${LINKEDIN_URL}" target="_blank" rel="noopener" aria-label="LinkedIn">${ICONS.linkedin}</a>` : ""}
