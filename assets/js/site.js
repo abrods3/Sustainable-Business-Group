@@ -32,12 +32,12 @@ const PAGES = [
 
 // SBG logo image, shown in the footer. Save your logo file at this path
 // (or change the path to match your file). Until the file exists, nothing shows.
-const LOGO_IMAGE = "images/logo.png";
+const WHITE_LOGO_IMAGE = "images/white-logo.png";
+const BLACK_LOGO_IMAGE = "images/black-logo.png";
 
 const CONTACT_EMAIL = "emorysustainablebusiness@gmail.com";
 const INSTAGRAM_URL = "https://www.instagram.com/emorysbg/";
-const LINKEDIN_URL  = "";   // Add the LinkedIn page URL here. Left blank, the icon is hidden.
-
+const LINKEDIN_URL  = "https://www.linkedin.com/company/emory-sustainable-business-group/home/";
 
 /* ---------- 1. Header and footer ---------- */
 
@@ -49,9 +49,16 @@ function navLink(page) {
 }
 
 // SBG name and logo. Used in the footer only; the header shows just the page tabs.
-const LOGO = `
+const WHITE_LOGO = `
   <a href="index.html" class="logo" aria-label="Emory Sustainable Business Group home">
-    <img class="logo-img" src="${LOGO_IMAGE}" alt="SBG logo" onerror="this.remove()">
+    <img class="logo-img" src="${WHITE_LOGO_IMAGE}" alt="SBG logo" onerror="this.remove()">
+    <span class="logo-text">Sustainable Business Group<small>Emory University</small></span>
+  </a>`;
+  
+
+const BLACK_LOGO = `
+  <a href="index.html" class="logo" aria-label="Emory Sustainable Business Group home">
+    <img class="logo-img" src="${BLACK_LOGO_IMAGE}" alt="SBG logo" onerror="this.remove()">
     <span class="logo-text">Sustainable Business Group<small>Emory University</small></span>
   </a>`;
 
@@ -77,17 +84,12 @@ document.body.insertAdjacentHTML("beforeend", `
     <div class="container">
       <div class="footer-grid">
         <div>
-          ${LOGO}
-          <p style="max-width: 360px;">Emory's sustainability-oriented consulting organization.</p>
+          ${WHITE_LOGO}
           <div class="socials">
             <a href="${INSTAGRAM_URL}" target="_blank" rel="noopener" aria-label="Instagram">${ICONS.instagram}</a>
             ${LINKEDIN_URL ? `<a href="${LINKEDIN_URL}" target="_blank" rel="noopener" aria-label="LinkedIn">${ICONS.linkedin}</a>` : ""}
             <a href="mailto:${CONTACT_EMAIL}" aria-label="Email">${ICONS.email}</a>
           </div>
-        </div>
-        <div>
-          <h4>Pages</h4>
-          <ul>${PAGES.map(p => `<li>${navLink(p)}</li>`).join("")}</ul>
         </div>
         <div>
           <h4>Get Involved</h4>
