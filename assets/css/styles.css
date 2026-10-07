@@ -416,13 +416,15 @@ img { max-width: 100%; display: block; }
    14. FOOTER  (inserted by assets/js/site.js)
    ========================================================================== */
 .site-footer { background: #0d261d; color: rgba(255,255,255,0.7); padding: 72px 0 32px; font-size: 0.93rem; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+/* Two columns: logo and social icons on the left, "Get Involved" links on the right */
+.footer-grid { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 48px; margin-bottom: 48px; }
 .site-footer h4 { color: var(--color-white); font-family: var(--font-body); font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px; }
 .site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .site-footer a { color: rgba(255,255,255,0.7); }
 .site-footer a:hover { color: var(--color-white); }
-.site-footer .logo { display: inline-block; margin-bottom: 8px; }
-.socials { display: flex; gap: 12px; margin-top: 20px; }
+.site-footer .logo { display: inline-block; }
+.site-footer .logo-img { display: block; }   /* removes the stray gap under the image */
+.socials { display: flex; gap: 12px; margin-top: 24px; }
 .socials a { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(255,255,255,0.2); }
 .socials a:hover { background: rgba(255,255,255,0.08); text-decoration: none; }
 .socials svg { width: 18px; height: 18px; }
@@ -454,8 +456,6 @@ img { max-width: 100%; display: block; }
   .split  { grid-template-columns: 1fr; gap: 48px; }
   .project { grid-template-columns: 1fr; }
   .project-visual { min-height: 160px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .footer-grid > :first-child { grid-column: 1 / -1; }
 
   /* Collapse the nav into a drop-down menu */
   .nav-toggle { display: block; }
@@ -481,6 +481,7 @@ img { max-width: 100%; display: block; }
   .grid-2, .grid-3, .form-row { grid-template-columns: 1fr; }
   .grid-4 { grid-template-columns: 1fr 1fr; gap: 16px; }
   .project-body { padding: 28px 24px; }
-  .footer-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; }   /* stack copyright and "Back to top" */
   .logo-img { height: 42px; }
 }
