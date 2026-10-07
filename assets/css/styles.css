@@ -222,9 +222,6 @@ img { max-width: 100%; display: block; }
 /* To use a photo instead, replace the background above with:
    background: linear-gradient(rgba(18,55,42,.78), rgba(18,55,42,.78)), url("../../images/hero.jpg") center/cover; */
 .hero h1 { color: var(--color-white); max-width: 820px; }
-/* Large white logo at the top of the home page. Change max-width to resize it. */
-.hero-logo { margin: 0 0 28px; }
-.hero-logo img { width: 100%; max-width: 460px; height: auto; }
 .hero h1 em { font-style: italic; color: #cfe3d6; }
 .hero .lead { font-size: 1.18rem; max-width: 600px; color: rgba(255,255,255,0.84); margin-bottom: 36px; }
 .hero .eyebrow { color: var(--color-gold); }
@@ -486,5 +483,4 @@ img { max-width: 100%; display: block; }
   .project-body { padding: 28px 24px; }
   .footer-grid { grid-template-columns: 1fr; }
   .logo-img { height: 42px; }
-  .hero-logo img { max-width: 300px; }
 }
