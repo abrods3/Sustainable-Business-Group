@@ -30,8 +30,7 @@ const PAGES = [
   { id: "contact",  label: "Contact",     href: "contact.html" }
 ];
 
-// SBG logo files. The black logo is used in the header (light background),
-// the white logo in the footer and on the home page banner (dark backgrounds).
+// SBG logo files. The black logo is used in the header (light background), the white logo in the footer.
 const WHITE_LOGO_IMAGE = "images/white-logo.png";
 const BLACK_LOGO_IMAGE = "images/black-logo.png";
 
