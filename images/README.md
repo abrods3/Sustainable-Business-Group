@@ -2,7 +2,9 @@
 
 | Folder      | What goes here                        | File name example          |
 |-------------|---------------------------------------|----------------------------|
-| (top level) | SBG logo: `black-logo.png` for light backgrounds (header), `white-logo.png` for dark ones (footer) | `black-logo.png` |
+| (top level) | SBG logo: for light backgrounds       | `black-logo.png`           |
+| (top level) | (header), and dark ones (footer)      | `white-logo.png`           | 
+| (top level) | Group picture for the home backround  | `hero.jpg`                 | 
 | `team/`     | Executive board headshots (square)    | `tamryn-weiss.jpg`         |
 | `board/`    | Board of directors headshots (square) | `alex-urist.jpg`           |
 | `clients/`  | Client logos                          | `delta.png`                |
