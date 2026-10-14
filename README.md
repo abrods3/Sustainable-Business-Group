@@ -1,7 +1,5 @@
 # Emory Sustainable Business Group website
-
-This is the website for Emory's Sustainable Business Group, a student consulting group that works with sustainable businesses on a variety of projects and with bigger companies on sustainability issues.
-
+Layout:
 ## Pages
 
 | File           | Page        |
