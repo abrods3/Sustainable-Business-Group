@@ -137,10 +137,11 @@ if ("IntersectionObserver" in window) {
 }
 
 
-/* ---------- 4. Missing headshots fall back to initials ---------- */
-// If a photo in an .avatar box can't be found, remove it so the initials show.
+/* ---------- 4. Missing photos fall back to placeholders ---------- */
+// If a headshot (.avatar) or photo (.photo) can't be found, remove the broken
+// image so the initials or the placeholder box show instead.
 
-document.querySelectorAll(".avatar img").forEach(img => {
+document.querySelectorAll(".avatar img, .photo img").forEach(img => {
   const hide = () => img.remove();
   if (img.complete && img.naturalWidth === 0) hide();
   else img.addEventListener("error", hide);
