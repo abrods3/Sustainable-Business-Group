@@ -37,6 +37,7 @@
   --color-muted:    #5d6862;   /* secondary text                       */
   --color-line:     #dfe5e1;   /* borders and dividers                 */
   --color-white:    #ffffff;
+  --color-grey:    #c8c8c8;
 
   --font-heading: "Fraunces", Georgia, "Times New Roman", serif;
   --font-body:    "Inter", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -378,7 +379,7 @@ img { max-width: 100%; display: block; }
 
 /* Left-hand image area. Put a client logo or photo inside as an <img>. */
 .project-visual {
-  background: linear-gradient(160deg, var(--color-forest-2) 0%, var(--color-forest) 100%);
+  background: linear-gradient(160deg, var(--color-grey) 0%, var(--color-grey) 100%);
   display: grid; place-items: center; padding: 32px; min-height: 220px;
   color: var(--color-white); font-family: var(--font-heading); font-size: 1.5rem; text-align: center;
 }
