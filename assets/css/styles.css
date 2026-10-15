@@ -161,6 +161,9 @@ img { max-width: 100%; display: block; }
 /* Two-column text + side content */
 .split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: start; }
 .split p { color: var(--color-muted); font-size: 1.05rem; }
+/* Add "split--center" to a .split section to center the right-hand column
+   vertically against the left one (used for Who We Are on the home page) */
+.split--center > :last-child { align-self: center; }
 
 /* Stacked layout: heading on its own line across the full width, text and buttons below */
 .stack p { color: var(--color-muted); font-size: 1.05rem; max-width: 940px; }
