@@ -322,6 +322,48 @@ img { max-width: 100%; display: block; }
 
 
 /* ==========================================================================
+   PHOTOS — placeholder boxes for photos of SBG
+   --------------------------------------------------------------------------
+   Each photo is a <figure class="photo"> in the HTML. Until its image file
+   exists, it shows as a light box with its label, like the headshots.
+   Delete the whole <figure> to remove a photo; the section goes back to its
+   layout without a photo automatically (see the .stack rules below).
+   ========================================================================== */
+.photo {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 3;                       /* box shape; change to 16 / 9 for wider photos */
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: linear-gradient(145deg, var(--color-mint), #cfdfd5);
+}
+/* Placeholder text and camera icon, hidden behind the photo once it loads */
+.photo::before {
+  content: attr(data-label);
+  position: absolute; inset: 0;
+  display: grid; place-items: center; align-content: center; gap: 10px;
+  padding: 24px; text-align: center;
+  font-size: 0.9rem; font-weight: 500; color: var(--color-sage);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f7c62' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8h3l2-3h6l2 3h3v11H4z'/%3E%3Ccircle cx='12' cy='13' r='3.5'/%3E%3C/svg%3E") center calc(50% - 26px) / 36px no-repeat;
+  padding-top: 64px;
+}
+.photo img { position: relative; width: 100%; height: 100%; object-fit: cover; }
+.photo--wide { aspect-ratio: 16 / 9; }
+
+/* A photo placed under the text in a two-column (.split) section (wider, so the columns stay balanced) */
+.split .photo { margin-top: 32px; aspect-ratio: 16 / 9; }
+
+/* A stacked section with a photo becomes two columns: text left, photo right.
+   Remove the photo and it goes back to one full-width column. */
+.stack:has(> .photo) { display: grid; grid-template-columns: 1.1fr 1fr; grid-template-rows: auto 1fr; column-gap: 72px; align-items: start; }
+.stack:has(> .photo) > :not(.photo) { grid-column: 1; }
+.stack:has(> .photo) > .photo { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+
+/* Gallery of photos in a row */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+
+/* ==========================================================================
    10. PROJECTS (Our Clients page)
    ========================================================================== */
 .project {
@@ -463,6 +505,9 @@ img { max-width: 100%; display: block; }
   .split  { grid-template-columns: 1fr; gap: 48px; }
   .project { grid-template-columns: 1fr; }
   .project-visual { min-height: 160px; }
+  .stack:has(> .photo) { display: block; }          /* photo drops below the text */
+  .stack:has(> .photo) > .photo { margin-top: 32px; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
 
   /* Collapse the nav into a drop-down menu */
   .nav-toggle { display: block; }
@@ -486,6 +531,7 @@ img { max-width: 100%; display: block; }
   .hero { padding: 96px 0 88px; }
   .page-header { padding: 64px 0 52px; }
   .grid-2, .grid-3, .form-row { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr; }
   .grid-4 { grid-template-columns: 1fr 1fr; gap: 16px; }
   .project-body { padding: 28px 24px; }
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
