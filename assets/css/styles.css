@@ -103,7 +103,9 @@ img { max-width: 100%; display: block; }
   margin-bottom: 14px;
 }
 
-.section-intro { max-width: 680px; margin-bottom: 48px; }
+/* Headings use the full width; only the intro paragraph is capped so lines stay readable */
+.section-intro { margin-bottom: 48px; }
+.section-intro p { max-width: 940px; }
 .section-intro p { color: var(--color-muted); font-size: 1.06rem; }
 .section-intro--center { margin-left: auto; margin-right: auto; text-align: center; }
 
@@ -159,6 +161,10 @@ img { max-width: 100%; display: block; }
 /* Two-column text + side content */
 .split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: start; }
 .split p { color: var(--color-muted); font-size: 1.05rem; }
+
+/* Stacked layout: heading on its own line across the full width, text and buttons below */
+.stack p { color: var(--color-muted); font-size: 1.05rem; max-width: 940px; }
+.stack h2 { margin-bottom: 20px; }
 
 /* Highlighted note box (used for "how to edit" hints that are visible on the page) */
 .note {
