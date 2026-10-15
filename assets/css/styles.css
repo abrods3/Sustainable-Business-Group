@@ -382,7 +382,22 @@ img { max-width: 100%; display: block; }
   display: grid; place-items: center; padding: 32px; min-height: 220px;
   color: var(--color-white); font-family: var(--font-heading); font-size: 1.5rem; text-align: center;
 }
-.project-visual img { max-height: 90px; width: auto; }
+/* Client logo, shown on top of the green background. The green shows around
+   any logo that doesn't fill the whole box. */
+.project-logo {
+  position: relative;
+  align-self: stretch; justify-self: stretch; min-height: 156px;   /* fill the green box */
+  display: grid; place-items: center;
+}
+.project-logo img { max-width: 100%; max-height: 180px; width: auto; height: auto; object-fit: contain; border-radius: 8px; }
+/* Placeholder shown until the logo file exists */
+.project-logo:not(:has(img))::before {
+  content: attr(data-label);
+  position: absolute; inset: 0;
+  display: grid; place-items: center; padding: 16px;
+  border: 1.5px dashed rgba(255,255,255,0.4); border-radius: 10px;
+  font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.75);
+}
 .project-body { padding: 36px 40px; }
 .project-body p { color: var(--color-muted); }
 
