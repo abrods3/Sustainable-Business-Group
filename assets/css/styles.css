@@ -388,7 +388,7 @@ img { max-width: 100%; display: block; }
   display: flex; align-items: center; justify-content: center;
 }
 .project-logo img {
-  max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;
+  max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;   /* exact size is set by site.js (part 5) */
   mix-blend-mode: multiply;   /* hides white or off-white logo backgrounds on the white page */
 }
 /* Placeholder shown until the logo file exists */
@@ -421,6 +421,9 @@ img { max-width: 100%; display: block; }
   width: 10px; height: 1.5px; background: var(--color-sage);
 }
 
+/* Previous Clients follows Current Projects directly, so it needs less space on top */
+#past { padding-top: 24px; }
+
 /* Previous Clients: a grid of logos with no boxes, matching the lines used
    for the projects above */
 .logos {
@@ -428,9 +431,9 @@ img { max-width: 100%; display: block; }
   padding: 48px 0;
   border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line);
 }
-.logo-tile { position: relative; height: 96px; display: flex; align-items: center; justify-content: center; }
+.logo-tile { position: relative; height: 84px; display: flex; align-items: center; justify-content: center; }
 .logo-tile img {
-  max-width: min(100%, 170px); max-height: 72px; width: auto; height: auto; object-fit: contain;   /* keeps logos a similar size */
+  max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;   /* exact size is set by site.js (part 5) */
   mix-blend-mode: multiply;   /* hides white logo backgrounds */
 }
 /* Shows the client's name until its logo file exists */

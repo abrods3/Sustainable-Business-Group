@@ -146,3 +146,32 @@ document.querySelectorAll(".avatar img, .photo img, .project-logo img, .logo-til
   if (img.complete && img.naturalWidth === 0) hide();
   else img.addEventListener("error", hide);
 });
+
+
+/* ---------- 5. Even out client logo sizes ---------- */
+// Logos come in very different shapes (square, wide, tall). Sizing them all to
+// the same height makes wide logos look huge and square ones tiny, so instead
+// each logo is sized to cover about the same AREA, capped to fit its box.
+// LOGO_SCALE: share of the box height a square logo fills (1 = full height).
+
+const LOGO_SCALE = 0.85;
+
+function balanceLogo(img) {
+  const box = img.parentElement;
+  if (!img.naturalWidth || !box) return;
+  const ratio = img.naturalWidth / img.naturalHeight;
+  const side = box.clientHeight * LOGO_SCALE;      // a square logo is side x side
+  let width = side * Math.sqrt(ratio);
+  let height = width / ratio;
+  if (width > box.clientWidth) { width = box.clientWidth; height = width / ratio; }
+  if (height > box.clientHeight) { height = box.clientHeight; width = height * ratio; }
+  img.style.width = Math.round(width) + "px";
+  img.style.height = Math.round(height) + "px";
+}
+
+const balancedLogos = document.querySelectorAll(".project-logo img, .logo-tile img");
+balancedLogos.forEach(img => {
+  if (img.complete) balanceLogo(img);
+  else img.addEventListener("load", () => balanceLogo(img));
+});
+window.addEventListener("resize", () => balancedLogos.forEach(balanceLogo));
