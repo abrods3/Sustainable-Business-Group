@@ -141,7 +141,7 @@ if ("IntersectionObserver" in window) {
 // If a headshot (.avatar), photo (.photo) or client logo (.project-logo) can't be
 // found, remove the broken image so the initials or the placeholder show instead.
 
-document.querySelectorAll(".avatar img, .photo img, .project-logo img").forEach(img => {
+document.querySelectorAll(".avatar img, .photo img, .project-logo img, .logo-tile img").forEach(img => {
   const hide = () => img.remove();
   if (img.complete && img.naturalWidth === 0) hide();
   else img.addEventListener("error", hide);
