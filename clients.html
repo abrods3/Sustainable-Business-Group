@@ -2,7 +2,7 @@
 <!--
   ============================================================================
   OUR CLIENTS PAGE  (clients.html)
-  Sections: Page header, Current Projects, Past Projects, Work With Us
+  Sections: Page header, Current Projects, Previous Clients, Work With Us
 
   HOW TO ADD A PROJECT
     Copy one whole <article class="project"> ... </article> block and paste it
@@ -10,8 +10,8 @@
     is drawn between projects automatically. Then edit the text.
 
   HOW TO ARCHIVE A PROJECT AT THE END OF A SEMESTER
-    Cut its <article> block from CURRENT PROJECTS and paste it at the top of
-    PAST PROJECTS. Change its "Current" tag to the semester it ran.
+    Delete its <article> block from CURRENT PROJECTS, then add the client's
+    logo to PREVIOUS CLIENTS (copy one <div class="logo-tile"> block there).
 
   CLIENT LOGOS
     Each project has a logo box on the left. Save the company's logo in
@@ -181,16 +181,30 @@
     <!-- ===== END SECTION: CURRENT PROJECTS ===== -->
 
 
-    <!-- ===== SECTION: PAST PROJECTS =====
-         Finished projects. Newest at the top.
-         [PLACEHOLDER] Add any other past projects that were listed on the old site. -->
+    <!-- ===== SECTION: PREVIOUS CLIENTS =====
+         Logos of clients from past semesters. To add one, save the logo in
+         images/clients/ and copy a <div class="logo-tile"> block, changing the
+         file name, alt text and data-label. Delete a block to remove a logo. -->
     <section class="section" id="past">
       <div class="container">
         <div class="section-intro reveal">
-          <span class="eyebrow">Past Projects</span>
-          <h2>Previous work</h2>
+          <h2>Previous Clients</h2>
         </div>
 
+        <div class="logos reveal">
+          <div class="logo-tile" data-label="Delta Air Lines">
+            <img src="images/clients/delta.png" alt="Delta Air Lines">
+          </div>
+          <div class="logo-tile" data-label="XCharge">
+            <img src="images/clients/xcharge.png" alt="XCharge">
+          </div>
+          <div class="logo-tile" data-label="Atlanta Department of Transportation">
+            <img src="images/clients/atlanta-department-of-transportation.png" alt="Atlanta Department of Transportation">
+          </div>
+          <div class="logo-tile" data-label="CAVA">
+            <img src="images/clients/cava.png" alt="CAVA">
+          </div>
+        </div>
         <div class="project-list">
           <!-- ----- Past project: Delta Air Lines ----- -->
           <article class="project reveal">
@@ -279,9 +293,10 @@
             </div>
           </article>
         </div>
+        </div>
       </div>
     </section>
-    <!-- ===== END SECTION: PAST PROJECTS ===== -->
+    <!-- ===== END SECTION: PREVIOUS CLIENTS ===== -->
 
 
     <!-- ===== SECTION: WORK WITH US ===== -->
