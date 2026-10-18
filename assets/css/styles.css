@@ -13,7 +13,7 @@
      7. HOME              stats bar, intro, page links
      8. ABOUT             pillars, process steps
      9. PEOPLE            executive board and board of directors cards
-    10. PROJECTS          current and past project cards
+    10. PROJECTS          current and past projects (Our Clients page)
     11. EVENTS
     12. JOIN
     13. CONTACT           contact details and form
@@ -370,51 +370,55 @@ img { max-width: 100%; display: block; }
 /* ==========================================================================
    10. PROJECTS (Our Clients page)
    ========================================================================== */
+/* Each project is an open row (logo left, details right) with a thin line
+   between projects instead of a box around each one. */
+.project-list { border-bottom: 1px solid var(--color-line); }
 .project {
-  display: grid; grid-template-columns: 280px 1fr;
-  border-radius: 18px; overflow: hidden;
-  background: var(--color-white); border: 1px solid var(--color-line);
+  display: grid; grid-template-columns: 200px 1fr; gap: 64px;
+  padding: 48px 0;
+  border-top: 1px solid var(--color-line);
 }
-.project + .project { margin-top: 24px; }
 
-/* Left-hand image area. Put a client logo or photo inside as an <img>. */
-.project-visual {
-  background: linear-gradient(160deg, var(--color-grey) 0%, var(--color-grey) 100%);
-  display: grid; place-items: center; padding: 32px; min-height: 220px;
-  color: var(--color-white); font-family: var(--font-heading); font-size: 1.5rem; text-align: center;
-}
-/* Client logo, shown on top of the green background. The green shows around
-   any logo that doesn't fill the whole box. */
+/* Logo column. Logos sit directly on the page, scaled to fit a fixed frame
+   so every row lines up. */
+.project-visual { align-self: start; }
 .project-logo {
   position: relative;
-  align-self: stretch; justify-self: stretch; min-height: 156px;   /* fill the green box */
-  display: grid; place-items: center;
+  height: 120px;
+  display: flex; align-items: center; justify-content: center;
 }
-.project-logo img { max-width: 100%; max-height: 180px; width: auto; height: auto; object-fit: contain; border-radius: 8px; }
+.project-logo img {
+  max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;
+  mix-blend-mode: multiply;   /* hides white or off-white logo backgrounds on the white page */
+}
 /* Placeholder shown until the logo file exists */
 .project-logo:not(:has(img))::before {
   content: attr(data-label);
   position: absolute; inset: 0;
-  display: grid; place-items: center; padding: 16px;
-  border: 1.5px dashed rgba(255,255,255,0.4); border-radius: 10px;
-  font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.75);
+  display: grid; place-items: center; padding: 12px; text-align: center;
+  border: 1px dashed var(--color-line); border-radius: 8px;
+  font-size: 0.82rem; font-weight: 500; color: var(--color-muted);
 }
-.project-body { padding: 36px 40px; }
+
+.project-body { max-width: 780px; }
+.project-body h3 { font-size: 1.45rem; margin-bottom: 12px; }
 .project-body p { color: var(--color-muted); }
 
-.project-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+/* Status and industry, shown as small labels separated by a dot */
+.project-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0; margin-bottom: 10px; }
 .tag {
-  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
-  padding: 4px 12px; border-radius: 999px;
-  background: var(--color-mint); color: var(--color-forest);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--color-sage);
 }
-.tag--gold { background: #f4ead4; color: #7a5c1e; }
+.tag + .tag::before { content: "\00B7"; margin: 0 10px; color: var(--color-muted); }
+.tag--gold { color: #9a7428; }
 
-.bullets { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 10px; }
-.bullets li { display: flex; gap: 12px; font-size: 0.96rem; }
+/* Details list with short dashes */
+.bullets { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
+.bullets li { position: relative; padding-left: 22px; font-size: 0.95rem; color: var(--color-ink); }
 .bullets li::before {
-  content: ""; flex-shrink: 0; margin-top: 9px;
-  width: 7px; height: 7px; border-radius: 50%; background: var(--color-sage);
+  content: ""; position: absolute; left: 0; top: 0.8em;
+  width: 10px; height: 1.5px; background: var(--color-sage);
 }
 
 /* Client name / logo strip */
@@ -522,8 +526,8 @@ img { max-width: 100%; display: block; }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .logos  { grid-template-columns: repeat(2, 1fr); }
   .split  { grid-template-columns: 1fr; gap: 48px; }
-  .project { grid-template-columns: 1fr; }
-  .project-visual { min-height: 160px; }
+  .project { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
+  .project-logo { height: 90px; width: 180px; justify-content: flex-start; }
   .stack:has(> .photo) { display: block; }          /* photo drops below the text */
   .stack:has(> .photo) > .photo { margin-top: 32px; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
@@ -552,7 +556,6 @@ img { max-width: 100%; display: block; }
   .grid-2, .grid-3, .form-row { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr; }
   .grid-4 { grid-template-columns: 1fr 1fr; gap: 16px; }
-  .project-body { padding: 28px 24px; }
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
   .footer-bottom { flex-direction: column; }   /* stack copyright and "Back to top" */
   .logo-img { height: 42px; }

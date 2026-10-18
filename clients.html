@@ -6,7 +6,8 @@
 
   HOW TO ADD A PROJECT
     Copy one whole <article class="project"> ... </article> block and paste it
-    below the others in the right section. Then edit the text.
+    below the others inside the section's <div class="project-list">. A line
+    is drawn between projects automatically. Then edit the text.
 
   HOW TO ARCHIVE A PROJECT AT THE END OF A SEMESTER
     Cut its <article> block from CURRENT PROJECTS and paste it at the top of
@@ -15,9 +16,10 @@
   CLIENT LOGOS
     Each project has a logo box on the left. Save the company's logo in
     images/clients/ using the file name written in the <img> tag (for example
-    images/clients/delta-air-lines.png) and it appears automatically, centered
-    on the green background. Until then, a placeholder with the company's name
-    shows. For a new project, change both the file name and data-label.
+    images/clients/delta-air-lines.png) and it appears automatically, scaled to
+    fit beside the project. Logos with a white background look best. Until a
+    logo is added, a placeholder with the company's name shows. For a new
+    project, change both the file name and data-label.
   ============================================================================
 -->
 <html lang="en">
@@ -58,126 +60,127 @@
           <h2>This semester</h2>
         </div>
 
-        <!-- ----- Current project template 1 ----- -->
-        <article class="project reveal">
-          <div class="project-visual">
-            <!-- LOGO: save as images/clients/home-depot.png -->
-            <div class="project-logo" data-label="Logo: Home Depot">
-              <img src="images/clients/home-depot.png" alt="Home Depot logo">
+        <div class="project-list">
+          <!-- ----- Current project template 1 ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: save as images/clients/home-depot.png -->
+              <div class="project-logo" data-label="Logo: Home Depot">
+                <img src="images/clients/home-depot.png" alt="Home Depot logo">
+              </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="tag tag--gold">Current</span>
-              <span class="tag">Retail</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="tag tag--gold">Current</span>
+                <span class="tag">Retail</span>
+              </div>
+              <h3>Home Depot: Induction Cooking Consumer Education Campaign</h3>
+              <p>Develop a strategy to educate Home Depot customers on induction cooking — including how the technology actually works, addressing adoption barriers, surfacing available rebates, and positioning Home Depot as the trusted destination for customers making the switch.</p>
+              <ul class="bullets">
+                <li>Build a mainstream messaging strategy for induction ranges that addresses key adoption barriers and translates rebates, energy savings, and carbon reduction into clear customer benefits.</li>
+                <li>Deliverables: a customer barrier map, a rebate landscape across key Home Depot markets, customer-facing energy and carbon savings figures, and a consumer education campaign that explains how induction works.</li>
+                <li>Project Lead: Jack Maney</li>
+              </ul>
             </div>
-            <h3>Home Depot: Induction Cooking Consumer Education Campaign</h3>
-            <p>Develop a strategy to educate Home Depot customers on induction cooking — including how the technology actually works, addressing adoption barriers, surfacing available rebates, and positioning Home Depot as the trusted destination for customers making the switch.</p>
-            <ul class="bullets">
-              <li>Build a mainstream messaging strategy for induction ranges that addresses key adoption barriers and translates rebates, energy savings, and carbon reduction into clear customer benefits.</li>
-              <li>Deliverables: a customer barrier map, a rebate landscape across key Home Depot markets, customer-facing energy and carbon savings figures, and a consumer education campaign that explains how induction works.</li>
-              <li>Project Lead: Jack Maney</li>
-            </ul>
-          </div>
-        </article>
-        <!-- ----- End current project template 1 ----- -->
+          </article>
+          <!-- ----- End current project template 1 ----- -->
 
-        <!-- ----- Current project template 2 ----- -->
-        <article class="project reveal">
-          <div class="project-visual">
-            <!-- LOGO: save as images/clients/psc.png -->
-            <div class="project-logo" data-label="Logo: PSC">
-              <img src="images/clients/psc.png" alt="PSC logo">
+          <!-- ----- Current project template 2 ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: save as images/clients/psc.png -->
+              <div class="project-logo" data-label="Logo: PSC">
+                <img src="images/clients/psc.png" alt="PSC logo">
+              </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="tag tag--gold">Current</span>
-              <span class="tag">Healthcare</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="tag tag--gold">Current</span>
+                <span class="tag">Healthcare</span>
+              </div>
+              <h3>PSC: Solar Plus Storage Pilot Business Case</h3>
+              <p>Develop a business case that quantifies the financial opportunity for Georgia hospitals to adopt solar and battery storage through Georgia Power's Solar Plus Storage Pilot, comparing customer-directed and utility-directed models with Boston Medical Center's Clean Power Prescription Program, to support hospital adoption decisions and demonstrate the pilot's viability for expansion. </p>
+              <ul class="bullets">
+                <li>Building the financial case for Atlanta hospitals (Emory and CHOA) to join Georgia Power's Solar Plus Storage Pilot, modeling both customer- and utility-directed pathways and benchmarking against Boston Medical Center's program.</li>
+                <li>Deliverables: Financial models with sensitivity analyses, a comparative business case report, an executive summary of key metrics (NPV, payback, savings, carbon reduction), and a pitch deck for hospital leadership.</li>
+                <li>Project Lead: Ansthrutha Shrinivas</li>
+              </ul>
             </div>
-            <h3>PSC: Solar Plus Storage Pilot Business Case</h3>
-            <p>Develop a business case that quantifies the financial opportunity for Georgia hospitals to adopt solar and battery storage through Georgia Power's Solar Plus Storage Pilot, comparing customer-directed and utility-directed models with Boston Medical Center's Clean Power Prescription Program, to support hospital adoption decisions and demonstrate the pilot's viability for expansion. </p>
-            <ul class="bullets">
-              <li>Building the financial case for Atlanta hospitals (Emory and CHOA) to join Georgia Power's Solar Plus Storage Pilot, modeling both customer- and utility-directed pathways and benchmarking against Boston Medical Center's program.</li>
-              <li>Deliverables: Financial models with sensitivity analyses, a comparative business case report, an executive summary of key metrics (NPV, payback, savings, carbon reduction), and a pitch deck for hospital leadership.</li>
-              <li>Project Lead: Ansthrutha Shrinivas</li>
-            </ul>
-          </div>
-        </article>
-        <!-- ----- End current project template 2 ----- -->
+          </article>
+          <!-- ----- End current project template 2 ----- -->
 
-  <!-- ----- Current project template 3 ----- -->
-        <article class="project reveal">
-          <div class="project-visual">
-            <!-- LOGO: save as images/clients/eca-solar.png -->
-            <div class="project-logo" data-label="Logo: ECA Solar">
-              <img src="images/clients/eca-solar.png" alt="ECA Solar logo">
+    <!-- ----- Current project template 3 ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: save as images/clients/eca-solar.png -->
+              <div class="project-logo" data-label="Logo: ECA Solar">
+                <img src="images/clients/eca-solar.png" alt="ECA Solar logo">
+              </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="tag tag--gold">Current</span>
-              <span class="tag">Energy</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="tag tag--gold">Current</span>
+                <span class="tag">Energy</span>
+              </div>
+              <h3>ECA Solar: BESS Go-To-Market Strategy</h3>
+              <p>Outline a Go-To-Market strategy for ECA, including addressing questions such as: How much budget to assign to ECA’s BESS efforts, How to staff the company appropriately, How to design ECA’s corporate organizational structure to not over-expose ECA’s core community solar business</p>
+              <ul class="bullets">
+                <li>Evaluating whether and how ECA should expand from community solar into front-of-the-meter battery storage in Illinois, weighing standalone BESS revenue potential against adding storage to solar projects.</li>
+                <li>Deliverables: A BESS value proposition and revenue stack analysis, a solar-only vs. solar-plus-storage tradeoff assessment, and a go-to-market plan covering budget, staffing, and an org structure that protects the core community solar business.</li>
+                <li>Project Lead: Nathaniel Green</li>
+              </ul>
             </div>
-            <h3>ECA Solar: BESS Go-To-Market Strategy</h3>
-            <p>Outline a Go-To-Market strategy for ECA, including addressing questions such as: How much budget to assign to ECA’s BESS efforts, How to staff the company appropriately, How to design ECA’s corporate organizational structure to not over-expose ECA’s core community solar business</p>
-            <ul class="bullets">
-              <li>Evaluating whether and how ECA should expand from community solar into front-of-the-meter battery storage in Illinois, weighing standalone BESS revenue potential against adding storage to solar projects.</li>
-              <li>Deliverables: A BESS value proposition and revenue stack analysis, a solar-only vs. solar-plus-storage tradeoff assessment, and a go-to-market plan covering budget, staffing, and an org structure that protects the core community solar business.</li>
-              <li>Project Lead: Nathaniel Green</li>
-            </ul>
-          </div>
-        </article>
-        <!-- ----- End current project template 3 ----- -->
+          </article>
+          <!-- ----- End current project template 3 ----- -->
 
- <!-- ----- Current project template 4 ----- -->
-        <article class="project reveal">
-          <div class="project-visual">
-            <!-- LOGO: save as images/clients/better-earth.png -->
-            <div class="project-logo" data-label="Logo: Better Earth">
-              <img src="images/clients/better-earth.png" alt="Better Earth logo">
+   <!-- ----- Current project template 4 ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: save as images/clients/better-earth.png -->
+              <div class="project-logo" data-label="Logo: Better Earth">
+                <img src="images/clients/better-earth.png" alt="Better Earth logo">
+              </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="tag tag--gold">Current</span>
-              <span class="tag">Environment</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="tag tag--gold">Current</span>
+                <span class="tag">Environment</span>
+              </div>
+              <h3>Better Earth: Impact Calculator Strategy</h3>
+              <p>Take Better Earth’s beta Plastic Impact Calculator from an internal Excel-based model to a credible, scalable, customer-facing software solution that helps customers understand the sustainability impact of their purchasing decisions.</p>
+              <ul class="bullets">
+                <li>Helping Better Earth turn its Excel-based sustainability impact calculator into a credible, customer-ready software product by validating the methodology, defining what customers need, and identifying where AI can streamline the workflow.</li>
+                <li>Deliverables: A validated methodology, a customer needs and metrics assessment, an end-to-end customer workflow design, an AI and automation opportunity assessment, a positioning and messaging framework, and a roadmap from beta to functional prototype.</li>
+                <li>Project Lead: Avaneesh </li>
+              </ul>
             </div>
-            <h3>Better Earth: Impact Calculator Strategy</h3>
-            <p>Take Better Earth’s beta Plastic Impact Calculator from an internal Excel-based model to a credible, scalable, customer-facing software solution that helps customers understand the sustainability impact of their purchasing decisions.</p>
-            <ul class="bullets">
-              <li>Helping Better Earth turn its Excel-based sustainability impact calculator into a credible, customer-ready software product by validating the methodology, defining what customers need, and identifying where AI can streamline the workflow.</li>
-              <li>Deliverables: A validated methodology, a customer needs and metrics assessment, an end-to-end customer workflow design, an AI and automation opportunity assessment, a positioning and messaging framework, and a roadmap from beta to functional prototype.</li>
-              <li>Project Lead: Avaneesh </li>
-            </ul>
-          </div>
-        </article>
-        <!-- ----- End current project template 4 ----- -->
+          </article>
+          <!-- ----- End current project template 4 ----- -->
 
-          <!-- ----- Current project template 5 ----- -->
-        <article class="project reveal">
-          <div class="project-visual">
-            <!-- LOGO: save as images/clients/super-south.png -->
-            <div class="project-logo" data-label="Logo: Super South">
-              <img src="images/clients/super-south.png" alt="Super South logo">
+            <!-- ----- Current project template 5 ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: save as images/clients/super-south.png -->
+              <div class="project-logo" data-label="Logo: Super South">
+                <img src="images/clients/super-south.png" alt="Super South logo">
+              </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="tag tag--gold">Current</span>
-              <span class="tag">Events & Conferences</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="tag tag--gold">Current</span>
+                <span class="tag">Events & Conferences</span>
+              </div>
+              <h3>Super South: Capstone Challenge Strategy</h3>
+              <p>Develop a strategic framework to launch and promote Super South's Capstone Challenge as a premier showcase for student sustainability innovation projects across the Southeast.</p>
+              <ul class="bullets">
+                <li>Designing the launch of a student Capstone Challenge, from recruiting participating universities and student groups to defining how submissions are structured and judged.</li>
+                <li>Deliverables: A submission framework and evaluation criteria, a pre-launch promotion strategy, a post-launch recruitment and engagement roadmap, and a finalist communication timeline.</li>
+                <li>Project Lead: Jackson Wentz</li>
+              </ul>
             </div>
-            <h3>Super South: Capstone Challenge Strategy</h3>
-            <p>Develop a strategic framework to launch and promote Super South's Capstone Challenge as a premier showcase for student sustainability innovation projects across the Southeast.</p>
-            <ul class="bullets">
-              <li>Designing the launch of a student Capstone Challenge, from recruiting participating universities and student groups to defining how submissions are structured and judged.</li>
-              <li>Deliverables: A submission framework and evaluation criteria, a pre-launch promotion strategy, a post-launch recruitment and engagement roadmap, and a finalist communication timeline.</li>
-              <li>Project Lead: Jackson Wentz</li>
-            </ul>
-          </div>
-        </article>
-        <!-- ----- End current project template 5 ----- -->
-
+          </article>
+          <!-- ----- End current project template 5 ----- -->
+        </div>
       </div>
     </section>
     <!-- ===== END SECTION: CURRENT PROJECTS ===== -->
@@ -186,102 +189,103 @@
     <!-- ===== SECTION: PAST PROJECTS =====
          Finished projects. Newest at the top.
          [PLACEHOLDER] Add any other past projects that were listed on the old site. -->
-    <section class="section section--sand" id="past">
+    <section class="section" id="past">
       <div class="container">
         <div class="section-intro reveal">
           <span class="eyebrow">Past Projects</span>
           <h2>Previous work</h2>
         </div>
 
-        <!-- ----- Past project: Delta Air Lines ----- -->
-        <article class="project reveal">
-          <div class="project-visual">
-            <!-- LOGO: save as images/clients/delta-air-lines.png -->
-            <div class="project-logo" data-label="Logo: Delta Air Lines">
-              <img src="images/clients/delta.png" alt="Delta Air Lines logo">
+        <div class="project-list">
+          <!-- ----- Past project: Delta Air Lines ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: save as images/clients/delta-air-lines.png -->
+              <div class="project-logo" data-label="Logo: Delta Air Lines">
+                <img src="images/clients/delta.png" alt="Delta Air Lines logo">
+              </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="tag">[Semester, Year]</span>
-              <span class="tag">Aviation</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="tag">[Semester, Year]</span>
+                <span class="tag">Aviation</span>
+              </div>
+              <h3>Delta Air Lines: Sustainable Travel Loyalty Framework</h3>
+              <p>
+                Delta asked our team to look at how the airline could better engage its customers
+                around sustainability. The team designed a concept for a loyalty framework that
+                rewards more sustainable travel choices, modeled on the structure of Delta's
+                existing loyalty programs.
+              </p>
+              <ul class="bullets">
+                <li>Aimed to encourage climate-conscious travel and help reduce Delta's Scope 1 emissions.</li>
+                <li>Built to fit Delta's existing customer engagement strategy.</li>
+                <li>Presented at Delta's Atlanta headquarters to the Chief Sustainability Officer and members of the sustainability and loyalty teams.</li>
+              </ul>
             </div>
-            <h3>Delta Air Lines: Sustainable Travel Loyalty Framework</h3>
-            <p>
-              Delta asked our team to look at how the airline could better engage its customers
-              around sustainability. The team designed a concept for a loyalty framework that
-              rewards more sustainable travel choices, modeled on the structure of Delta's
-              existing loyalty programs.
-            </p>
-            <ul class="bullets">
-              <li>Aimed to encourage climate-conscious travel and help reduce Delta's Scope 1 emissions.</li>
-              <li>Built to fit Delta's existing customer engagement strategy.</li>
-              <li>Presented at Delta's Atlanta headquarters to the Chief Sustainability Officer and members of the sustainability and loyalty teams.</li>
-            </ul>
-          </div>
-        </article>
+          </article>
 
-        <!-- ----- Past project: XCharge ----- -->
-        <article class="project reveal">
-          <div class="project-visual">
-            <!-- LOGO: save as images/clients/xcharge.png -->
-            <div class="project-logo" data-label="Logo: XCharge">
-              <img src="images/clients/xcharge.png" alt="XCharge logo">
+          <!-- ----- Past project: XCharge ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: save as images/clients/xcharge.png -->
+              <div class="project-logo" data-label="Logo: XCharge">
+                <img src="images/clients/xcharge.png" alt="XCharge logo">
+              </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="tag">[Semester, Year]</span>
-              <span class="tag">EV Charging</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="tag">[Semester, Year]</span>
+                <span class="tag">EV Charging</span>
+              </div>
+              <h3>XCharge North America: [Project title]</h3>
+              <p>[PLACEHOLDER: describe what the team worked on for XCharge.]</p>
+              <ul class="bullets">
+                <li>Four SBG consultants continued working with XCharge through the company's internship program after the project ended.</li>
+              </ul>
             </div>
-            <h3>XCharge North America: [Project title]</h3>
-            <p>[PLACEHOLDER: describe what the team worked on for XCharge.]</p>
-            <ul class="bullets">
-              <li>Four SBG consultants continued working with XCharge through the company's internship program after the project ended.</li>
-            </ul>
-          </div>
-        </article>
+          </article>
 
-         <!-- ----- Past project: DOT ----- -->
-        <article class="project reveal">
-          <div class="project-visual">
-            <!-- LOGO: save as images/clients/atlanta-department-of-transportation.png -->
-            <div class="project-logo" data-label="Logo: Atlanta Department of Transportation">
-              <img src="images/clients/atlanta-department-of-transportation.png" alt="Atlanta Department of Transportation logo">
+           <!-- ----- Past project: DOT ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: save as images/clients/atlanta-department-of-transportation.png -->
+              <div class="project-logo" data-label="Logo: Atlanta Department of Transportation">
+                <img src="images/clients/atlanta-department-of-transportation.png" alt="Atlanta Department of Transportation logo">
+              </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="tag">Spring, 2026</span>
-              <span class="tag">Policy</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="tag">Spring, 2026</span>
+                <span class="tag">Policy</span>
+              </div>
+              <h3>ATL DOT: Shared Micromobility Compliance Report Card.</h3>
+              <ul class="bullets">
+                <li>Translated administrative regulations into clear, trackable performance metrics and benchmarked Atlanta’s standards against best practices from other leading cities.</li>
+                <li>Developed a structured, data-driven reporting system — supported by a detailed methodology — that enables Atlanta's Department of Transportation to monitor operator compliance, identify performance gaps, and communicate actionable insights through regular evaluations.</li>
+              </ul>
             </div>
-            <h3>ATL DOT: Shared Micromobility Compliance Report Card.</h3>
-            <ul class="bullets">
-              <li>Translated administrative regulations into clear, trackable performance metrics and benchmarked Atlanta’s standards against best practices from other leading cities.</li>
-              <li>Developed a structured, data-driven reporting system — supported by a detailed methodology — that enables Atlanta's Department of Transportation to monitor operator compliance, identify performance gaps, and communicate actionable insights through regular evaluations.</li>
-            </ul>
-          </div>
-        </article>
-        <!-- ----- Past project: CAVA ----- -->
-        <article class="project reveal">
-          <div class="project-visual">
-            <!-- LOGO: save as images/clients/cava.png -->
-            <div class="project-logo" data-label="Logo: CAVA">
-              <img src="images/clients/cava.png" alt="CAVA logo">
+          </article>
+          <!-- ----- Past project: CAVA ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: save as images/clients/cava.png -->
+              <div class="project-logo" data-label="Logo: CAVA">
+                <img src="images/clients/cava.png" alt="CAVA logo">
+              </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="tag">[semester, year]</span>
-              <span class="tag">[industry]</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="tag">[semester, year]</span>
+                <span class="tag">[industry]</span>
+              </div>
+              <h3>CAVA: </h3>
+              <ul class="bullets">
+                <li>[PLACEHOLDER: describe what the team worked on for CAVA.]</li>
+              </ul>
             </div>
-            <h3>CAVA: </h3>
-            <ul class="bullets">
-              <li>[PLACEHOLDER: describe what the team worked on for CAVA.]</li>
-            </ul>
-          </div>
-        </article>
-
+          </article>
+        </div>
       </div>
     </section>
     <!-- ===== END SECTION: PAST PROJECTS ===== -->
