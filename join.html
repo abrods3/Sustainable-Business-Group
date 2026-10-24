@@ -2,7 +2,14 @@
 <!--
   ============================================================================
   JOIN PAGE  (join.html)
-  Sections: Page header, Ways to Get Involved, Sign Up
+  Sections: Page header, Ways to Get Involved, How SBG Is Organized
+            (interactive org chart), Sign Up
+
+  ORG CHART
+    Each level of the chart is a <button class="org-node" data-org="...">.
+    Clicking it shows the matching <div class="org-detail" id="org-..."> panel.
+    To edit what a level says, edit its org-detail panel. To add a level, copy
+    one button and one panel, and give them a new matching name.
   ============================================================================
 -->
 <html lang="en">
@@ -24,7 +31,7 @@
     <section class="page-header">
       <div class="container">
         <h1>Join SBG</h1>
-        <p>Membership is open to all Emory undergraduates on the Atlanta and Oxford campuses, in any major.</p>
+        <p>Membership is open to all Emory undergraduates on the Atlanta and Oxford campuses, in any major. We recruit new members each spring semester.</p>
       </div>
     </section>
     <!-- ===== END SECTION: PAGE HEADER ===== -->
@@ -48,15 +55,91 @@
           </figure>
         </div>
 
+        <!-- [PLACEHOLDER] Check the "How to join" lines match how SBG recruits. -->
         <ul class="roles reveal">
-          <li><strong>General Member</strong><span>Come to the speaker series and general body meetings.</span></li>
-          <li><strong>Consultant Fellow</strong><span>Learn the basics of consulting through our training program.</span></li>
-          <li><strong>Consultant</strong><span>Join a team working on a project for a real client.</span></li>
-          <li><strong>Project Lead</strong><span>Run a client team. Open to members who have completed a semester as a consultant.</span></li>
+          <li>
+            <strong>General Member</strong>
+            <span>Come to our speaker series and general body meetings to learn about sustainable business and meet other members.</span>
+            <em class="role-how">How to join: no application needed. Come to any event.</em>
+          </li>
+          <li>
+            <strong>Consultant Fellow</strong>
+            <span>Learn the basics of consulting (research, frameworks and presenting) through training sessions and a mock client project.</span>
+            <em class="role-how">How to join: apply during spring recruiting. No consulting experience needed.</em>
+          </li>
+          <li>
+            <strong>Consultant</strong>
+            <span>Work on a team for a real client for the full semester, from the first research to the final presentation.</span>
+            <em class="role-how">How to join: apply during spring recruiting.</em>
+          </li>
+          <li>
+            <strong>Project Lead</strong>
+            <span>Run a client team: manage the client relationship, plan the work and guide the consultants.</span>
+            <em class="role-how">How to join: apply after completing a semester as a consultant.</em>
+          </li>
         </ul>
       </div>
     </section>
     <!-- ===== END SECTION: WAYS TO GET INVOLVED ===== -->
+
+
+    <!-- ===== SECTION: HOW SBG IS ORGANIZED (interactive org chart) =====
+         Click a level to read about it. See "ORG CHART" at the top of this file. -->
+    <section class="section section--sand" id="organization">
+      <div class="container">
+        <div class="section-intro reveal">
+          <span class="eyebrow">How SBG Is Organized</span>
+          <h2>From the board to our newest members</h2>
+          <p>Select a level of the chart to see what that group does.</p>
+        </div>
+
+        <div class="org reveal" data-orgchart>
+          <!-- The chart: one button per level, top to bottom -->
+          <div class="org-chart" role="tablist" aria-label="SBG organization chart">
+            <button class="org-node org-node--advise" role="tab" data-org="board">Board of Directors</button>
+            <button class="org-node" role="tab" data-org="exec">Executive Board</button>
+            <button class="org-node" role="tab" data-org="leads">Project Leads</button>
+            <button class="org-node" role="tab" data-org="consultants">Consultants</button>
+            <button class="org-node" role="tab" data-org="fellows">Consultant Fellows</button>
+          </div>
+
+          <!-- The detail panels: one per level, matching the buttons above -->
+          <div class="org-details">
+            <div class="org-detail" id="org-board" role="tabpanel">
+              <span class="eyebrow">Advises</span>
+              <h3>Board of Directors</h3>
+              <p>Working professionals in consulting, finance, energy and sustainability, many of them SBG alumni. They advise the executive board and give project teams feedback on their work.</p>
+              <a href="team.html#board-of-directors" class="org-more">Meet the board &rarr;</a>
+            </div>
+            <div class="org-detail" id="org-exec" role="tabpanel" hidden>
+              <span class="eyebrow">Leads SBG</span>
+              <h3>Executive Board</h3>
+              <p>The students who run SBG, led by the two presidents. Each vice president owns one area: business development (finding clients), education (the Consultant Fellow program), marketing, external affairs, operations, technical development and board engagement.</p>
+              <a href="team.html#executive-board" class="org-more">Meet the executive board &rarr;</a>
+            </div>
+            <div class="org-detail" id="org-leads" role="tabpanel" hidden>
+              <span class="eyebrow">Run client teams</span>
+              <h3>Project Leads</h3>
+              <p>Each Project Lead runs one client team for the semester. They are the client's main contact, set the work plan, and guide their consultants through to the final presentation.</p>
+              <p class="org-path">Open to members who have completed a semester as a consultant.</p>
+            </div>
+            <div class="org-detail" id="org-consultants" role="tabpanel" hidden>
+              <span class="eyebrow">Do the client work</span>
+              <h3>Consultants</h3>
+              <p>Consultants work in teams on semester-long, pro-bono projects for real clients, from Atlanta startups to Fortune 500 companies. They research the problem, build recommendations and present them to the client.</p>
+              <a href="clients.html" class="org-more">See our projects &rarr;</a>
+            </div>
+            <div class="org-detail" id="org-fellows" role="tabpanel" hidden>
+              <span class="eyebrow">Learn consulting</span>
+              <h3>Consultant Fellows</h3>
+              <p>New members learn how consulting works through training sessions and a mock client project, before joining a real client team.</p>
+              <p class="org-path">Open to any student. No consulting experience needed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== END SECTION: HOW SBG IS ORGANIZED ===== -->
 
 
     <!-- ===== SECTION: SIGN UP =====
@@ -67,11 +150,12 @@
           <h2>Ready to join?</h2>
         </div>
         <div class="reveal">
-          <p> Applications are currently not open. Listen for future announcements about applications and events.</p>
+          <p>SBG recruits new Consultant Fellows and consultants at the start of each spring semester. Applications are currently closed; follow <a href="https://www.instagram.com/emorysbg/" target="_blank" rel="noopener" style="color: #fff; text-decoration: underline;">@emorysbg</a> on Instagram to hear when they open.</p>
+          <p>Questions? Email our presidents, Niels Cohen at <a href="mailto:niels.cohen@emory.edu" style="color: #fff; text-decoration: underline;">niels.cohen@emory.edu</a> and Tamryn Weiss at <a href="mailto:tamryn.weiss@emory.edu" style="color: #fff; text-decoration: underline;">tamryn.weiss@emory.edu</a>.</p>
           <!-- <p> Apply now for a consultant or project lead posiition, or send us any questions you may have. </p> -->
           <div class="cta-actions">
             <!-- <a href="link to applicaion" class="btn btn--light" target="_blank" rel="noopener">Apply</a> -->
-            <a href="contact.html" class="btn btn--outline-light">Ask a Question</a>
+            <a href="mailto:niels.cohen@emory.edu,tamryn.weiss@emory.edu" class="btn btn--outline-light">Email Us</a>
           </div>
         </div>
       </div>

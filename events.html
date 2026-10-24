@@ -82,8 +82,24 @@
 
 
     <!-- ===== SECTION: PHOTO GALLERY =====
-         Photos from past events. Delete this whole section to remove the gallery,
-         or delete single <figure> blocks to show fewer photos. -->
+         A sideways-scrolling carousel of photos from past events. Use the arrow
+         buttons (or swipe on a phone) to move through it.
+
+         ADDING A PHOTO
+           Save it as images/photos/event-N.jpg, then fill in that slot below:
+             - the event name in <span class="gallery-title">
+             - the date in <time datetime="YYYY-MM-DD">, e.g. datetime="2026-10-28"
+           The date is written out on the page automatically, and the photos are
+           sorted by date automatically, newest first (change GALLERY_NEWEST_FIRST
+           in assets/js/site.js to show oldest first). Slots without a date go last.
+
+         ADDING MORE SLOTS
+           Copy one <figure class="gallery-item"> ... </figure> block, and give it
+           a new file name (event-10.jpg, event-11.jpg, ...).
+
+         REMOVING
+           Delete a <figure class="gallery-item"> block to remove one photo, or
+           this whole section to remove the gallery. -->
     <section class="section section--sand">
       <div class="container">
         <div class="section-intro reveal">
@@ -91,22 +107,48 @@
           <h2>Past events</h2>
         </div>
 
-        <div class="gallery reveal">
-          <!-- PHOTO: save the image as images/photos/event-1.jpg. To remove it, delete from here
-               to </figure>; the section goes back to its layout without a photo. -->
-          <figure class="photo" data-label="Photo: speaker series">
-            <img src="images/photos/event-1.jpg" alt="SBG speaker series event" loading="lazy">
-          </figure>
-          <!-- PHOTO: save the image as images/photos/event-2.jpg. To remove it, delete from here
-               to </figure>; the section goes back to its layout without a photo. -->
-          <figure class="photo" data-label="Photo: general body meeting">
-            <img src="images/photos/event-2.jpg" alt="SBG general body meeting" loading="lazy">
-          </figure>
-          <!-- PHOTO: save the image as images/photos/event-3.jpg. To remove it, delete from here
-               to </figure>; the section goes back to its layout without a photo. -->
-          <figure class="photo" data-label="Photo: Consultant Fellow session">
-            <img src="images/photos/event-3.jpg" alt="SBG Consultant Fellow session" loading="lazy">
-          </figure>
+        <!-- [PLACEHOLDER] Add the date (datetime="YYYY-MM-DD") for each photo. -->
+        <div class="carousel reveal" data-carousel>
+          <button class="carousel-btn carousel-btn--prev" type="button" aria-label="Previous photos">&#8249;</button>
+          <div class="carousel-track" tabindex="0" aria-label="Event photos">
+            <figure class="gallery-item">
+              <div class="photo" data-label="Photo: event-1.jpg"><img src="images/photos/event-1.jpg" alt="SBG speaker series event" loading="lazy"></div>
+              <figcaption><time datetime=""></time><span class="gallery-title">Speaker Series</span></figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="photo" data-label="Photo: event-2.jpg"><img src="images/photos/event-2.jpg" alt="SBG general body meeting" loading="lazy"></div>
+              <figcaption><time datetime=""></time><span class="gallery-title">General Body Meeting</span></figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="photo" data-label="Photo: event-3.jpg"><img src="images/photos/event-3.jpg" alt="SBG Consultant Fellow session" loading="lazy"></div>
+              <figcaption><time datetime=""></time><span class="gallery-title">Consultant Fellow Session</span></figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="photo" data-label="Photo: event-4.jpg"><img src="images/photos/event-4.jpg" alt="SBG event" loading="lazy"></div>
+              <figcaption><time datetime=""></time><span class="gallery-title">[Event title]</span></figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="photo" data-label="Photo: event-5.jpg"><img src="images/photos/event-5.jpg" alt="SBG event" loading="lazy"></div>
+              <figcaption><time datetime=""></time><span class="gallery-title">[Event title]</span></figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="photo" data-label="Photo: event-6.jpg"><img src="images/photos/event-6.jpg" alt="SBG event" loading="lazy"></div>
+              <figcaption><time datetime=""></time><span class="gallery-title">[Event title]</span></figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="photo" data-label="Photo: event-7.jpg"><img src="images/photos/event-7.jpg" alt="SBG event" loading="lazy"></div>
+              <figcaption><time datetime=""></time><span class="gallery-title">[Event title]</span></figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="photo" data-label="Photo: event-8.jpg"><img src="images/photos/event-8.jpg" alt="SBG event" loading="lazy"></div>
+              <figcaption><time datetime=""></time><span class="gallery-title">[Event title]</span></figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="photo" data-label="Photo: event-9.jpg"><img src="images/photos/event-9.jpg" alt="SBG event" loading="lazy"></div>
+              <figcaption><time datetime=""></time><span class="gallery-title">[Event title]</span></figcaption>
+            </figure>
+          </div>
+          <button class="carousel-btn carousel-btn--next" type="button" aria-label="Next photos">&#8250;</button>
         </div>
       </div>
     </section>

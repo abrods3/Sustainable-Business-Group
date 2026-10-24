@@ -2,16 +2,23 @@
 <!--
   ============================================================================
   OUR CLIENTS PAGE  (clients.html)
-  Sections: Page header, Current Projects, Previous Clients, Work With Us
+  Sections: Page header, Current Projects, Past Semester, Previous Clients, Work With Us
 
   HOW TO ADD A PROJECT
     Copy one whole <article class="project"> ... </article> block and paste it
     below the others inside the section's <div class="project-list">. A line
     is drawn between projects automatically. Then edit the text.
 
-  HOW TO ARCHIVE A PROJECT AT THE END OF A SEMESTER
-    Delete its <article> block from CURRENT PROJECTS, then add the client's
-    logo to PREVIOUS CLIENTS (copy one <div class="logo-tile"> block there).
+  AT THE END OF A SEMESTER
+    1. Move last semester's clients from PAST SEMESTER to PREVIOUS CLIENTS:
+       delete each <article> block and add the client's logo to PREVIOUS
+       CLIENTS (copy one <div class="logo-tile"> block there).
+    2. Move this semester's <article> blocks from CURRENT PROJECTS into
+       PAST SEMESTER.
+
+  LINKEDIN LINKS
+    Each logo links to the company's LinkedIn page. To change a link, edit the
+    href="..." on the <a class="logo-link"> around the logo.
 
   CLIENT LOGOS
     Each project has a logo box on the left. Save the company's logo in
@@ -66,7 +73,9 @@
             <div class="project-visual">
               <!-- LOGO: save as images/clients/home-depot.png -->
               <div class="project-logo" data-label="Logo: Home Depot">
-                <img src="images/clients/home-depot.png" alt="Home Depot logo">
+                <a class="logo-link" href="https://www.linkedin.com/company/the-home-depot/" target="_blank" rel="noopener" aria-label="Home Depot on LinkedIn">
+                  <img src="images/clients/home-depot.png" alt="Home Depot logo">
+                </a>
               </div>
             </div>
             <div class="project-body">
@@ -86,7 +95,9 @@
             <div class="project-visual">
               <!-- LOGO: save as images/clients/psc.png -->
               <div class="project-logo" data-label="Logo: PSC">
-                <img src="images/clients/psc.png" alt="PSC logo">
+                <a class="logo-link" href="https://www.linkedin.com/company/georgia-public-service-comm/" target="_blank" rel="noopener" aria-label="PSC on LinkedIn">
+                  <img src="images/clients/psc.png" alt="PSC logo">
+                </a>
               </div>
             </div>
             <div class="project-body">
@@ -106,7 +117,9 @@
             <div class="project-visual">
               <!-- LOGO: save as images/clients/eca-solar.png -->
               <div class="project-logo" data-label="Logo: ECA Solar">
-                <img src="images/clients/eca-solar.png" alt="ECA Solar logo">
+                <a class="logo-link" href="https://www.linkedin.com/company/eca-solar/" target="_blank" rel="noopener" aria-label="ECA Solar on LinkedIn">
+                  <img src="images/clients/eca-solar.png" alt="ECA Solar logo">
+                </a>
               </div>
             </div>
             <div class="project-body">
@@ -126,7 +139,9 @@
             <div class="project-visual">
               <!-- LOGO: save as images/clients/better-earth.png -->
               <div class="project-logo" data-label="Logo: Better Earth">
-                <img src="images/clients/better-earth.png" alt="Better Earth logo">
+                <a class="logo-link" href="https://www.linkedin.com/company/becompostable/" target="_blank" rel="noopener" aria-label="Better Earth on LinkedIn">
+                  <img src="images/clients/better-earth.png" alt="Better Earth logo">
+                </a>
               </div>
             </div>
             <div class="project-body">
@@ -146,6 +161,8 @@
             <div class="project-visual">
               <!-- LOGO: save as images/clients/super-south.png -->
               <div class="project-logo" data-label="Logo: Super South">
+                <!-- LINKEDIN: no company page found yet. To link this logo, wrap the <img> in
+                     <a class="logo-link" href="https://www.linkedin.com/company/..." target="_blank" rel="noopener"> like the others. -->
                 <img src="images/clients/super-south.png" alt="Super South logo">
               </div>
             </div>
@@ -166,6 +183,68 @@
     <!-- ===== END SECTION: CURRENT PROJECTS ===== -->
 
 
+    <!-- ===== SECTION: PAST SEMESTER =====
+         Full write-ups of last semester's projects. At the end of each semester,
+         move the current projects here and move these clients' logos down to
+         PREVIOUS CLIENTS. -->
+    <section class="section section--flush-top" id="last-semester">
+      <div class="container">
+        <div class="section-intro reveal">
+          <span class="eyebrow">Past Semester</span>
+          <h2>Last semester</h2>
+        </div>
+
+        <div class="project-list">
+          <!-- ----- Past project: Delta Air Lines ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: images/clients/delta.png -->
+              <div class="project-logo" data-label="Logo: Delta Air Lines">
+                <a class="logo-link" href="https://www.linkedin.com/company/delta-air-lines/" target="_blank" rel="noopener" aria-label="Delta Air Lines on LinkedIn">
+                  <img src="images/clients/delta.png" alt="Delta Air Lines logo">
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Delta Air Lines: Sustainable Travel Loyalty Framework</h3>
+              <p>
+                Delta asked our team to look at how the airline could better engage its customers
+                around sustainability. The team designed a concept for a loyalty framework that
+                rewards more sustainable travel choices, modeled on the structure of Delta's
+                existing loyalty programs.
+              </p>
+              <ul class="bullets">
+                <li>Aimed to encourage climate-conscious travel and help reduce Delta's Scope 1 emissions.</li>
+                <li>Built to fit Delta's existing customer engagement strategy.</li>
+                <li>Presented at Delta's Atlanta headquarters to the Chief Sustainability Officer and members of the sustainability and loyalty teams.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- ----- Past project: XCharge ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: save as images/clients/xcharge.png -->
+              <div class="project-logo" data-label="Logo: XCharge">
+                <a class="logo-link" href="https://www.linkedin.com/company/xcharge-energy/" target="_blank" rel="noopener" aria-label="XCharge on LinkedIn">
+                  <img src="images/clients/xcharge.png" alt="XCharge logo">
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>XCharge North America: [Project title]</h3>
+              <p>[PLACEHOLDER: describe what the team worked on for XCharge.]</p>
+              <ul class="bullets">
+                <li>Four SBG consultants continued working with XCharge through the company's internship program after the project ended.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- ===== END SECTION: PAST SEMESTER ===== -->
+
+
     <!-- ===== SECTION: PREVIOUS CLIENTS =====
          Logos of clients from past semesters. To add one, save the logo in
          images/clients/ and copy a <div class="logo-tile"> block, changing the
@@ -177,41 +256,45 @@
         </div>
 
         <div class="logos reveal">
-          <div class="logo-tile" data-label="Delta Air Lines">
-            <img src="images/clients/delta.png" alt="Delta Air Lines">
-          </div>
            <div class="logo-tile" data-label="CAVA">
-            <img src="images/clients/cava.png" alt="CAVA">
+            <a class="logo-link" href="https://www.linkedin.com/company/cava-/" target="_blank" rel="noopener" aria-label="CAVA on LinkedIn">
+              <img src="images/clients/cava.png" alt="CAVA">
+            </a>
           </div>
           <div class="logo-tile" data-label="Atlanta Department of Transportation">
+            <!-- LINKEDIN: no company page found yet. To link this logo, wrap the <img> in
+                 <a class="logo-link" href="https://www.linkedin.com/company/..." target="_blank" rel="noopener"> like the others. -->
             <img src="images/clients/atlanta-department-of-transportation.png" alt="Atlanta Department of Transportation">
           </div>
-          <div class="logo-tile" data-label="XCharge">
-            <img src="images/clients/xcharge.png" alt="XCharge">
-          </div>
           <div class="logo-tile" data-label="Finless Foods">
-            <img src="images/clients/finless-foods.png" alt="Finless Foods">
+            <a class="logo-link" href="https://www.linkedin.com/company/finlessfoods/" target="_blank" rel="noopener" aria-label="Finless Foods on LinkedIn">
+              <img src="images/clients/finless-foods.png" alt="Finless Foods">
+            </a>
           </div>
           <div class="logo-tile" data-label="Horizon Energy South">
+            <!-- LINKEDIN: no company page found yet. To link this logo, wrap the <img> in
+                 <a class="logo-link" href="https://www.linkedin.com/company/..." target="_blank" rel="noopener"> like the others. -->
             <img src="images/clients/horizon-energy-south.png" alt="Horizon Energy South">
           </div>
           <div class="logo-tile" data-label="Cleanr">
-            <img src="images/clients/cleanr.png" alt="Cleanr">
+            <a class="logo-link" href="https://www.linkedin.com/company/cleanrlife/" target="_blank" rel="noopener" aria-label="Cleanr on LinkedIn">
+              <img src="images/clients/cleanr.png" alt="Cleanr">
+            </a>
           </div>
           <div class="logo-tile" data-label="Interface">
-            <img src="images/clients/interface.png" alt="Interface">
+            <a class="logo-link" href="https://www.linkedin.com/company/interface/" target="_blank" rel="noopener" aria-label="Interface on LinkedIn">
+              <img src="images/clients/interface.png" alt="Interface">
+            </a>
           </div>
           <div class="logo-tile" data-label="Goodr">
-            <img src="images/clients/goodr.png" alt="Goodr">
+            <a class="logo-link" href="https://www.linkedin.com/company/goodrco/" target="_blank" rel="noopener" aria-label="Goodr on LinkedIn">
+              <img src="images/clients/goodr.png" alt="Goodr">
+            </a>
           </div>
           <div class="logo-tile" data-label="Buzze">
-            <img src="images/clients/buzze.png" alt="Buzze">
-          </div>
-          <div class="logo-tile" data-label="Ubuntoo">
-            <img src="images/clients/ubuntoo.png" alt="Ubuntoo">
-          </div>
-          <div class="logo-tile" data-label="Georgia Innovation Hub">
-            <img src="images/clients/georgia-innovation-hub.png" alt="Georgia Innovation Hub">
+            <a class="logo-link" href="https://www.linkedin.com/company/buzze-inc/" target="_blank" rel="noopener" aria-label="Buzze on LinkedIn">
+              <img src="images/clients/buzze.png" alt="Buzze">
+            </a>
           </div>
         </div>
       </div>

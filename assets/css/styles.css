@@ -155,6 +155,7 @@ img { max-width: 100%; display: block; }
 
 /* Grids */
 .grid   { display: grid; gap: 24px; }
+.grid > * { min-width: 0; }   /* lets columns shrink so long text wraps instead of widening the page */
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
@@ -366,6 +367,33 @@ img { max-width: 100%; display: block; }
 /* Gallery of photos in a row */
 .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
+/* Carousel (Events gallery): a row of photos that scrolls sideways, with
+   arrow buttons on each side. Three photos show at a time on desktop. */
+.carousel { position: relative; }
+.carousel-track {
+  display: flex; gap: 24px;
+  overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  scrollbar-width: none;                       /* hide the scrollbar (Firefox) */
+}
+.carousel-track::-webkit-scrollbar { display: none; }   /* hide the scrollbar (Chrome, Safari) */
+.carousel-track:focus-visible { outline: 2px solid var(--color-sage); outline-offset: 4px; }
+.gallery-item { flex: 0 0 calc((100% - 48px) / 3); margin: 0; scroll-snap-align: start; }
+.gallery-item figcaption { padding-top: 14px; }
+.gallery-item time { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-sage); }
+.gallery-title { display: block; margin-top: 4px; font-family: var(--font-heading); font-weight: 600; font-size: 1.1rem; color: var(--color-forest); }
+.carousel-btn {
+  position: absolute; top: calc(50% - 40px); z-index: 2;
+  width: 48px; height: 48px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 1.8rem; line-height: 1; padding-bottom: 4px; color: var(--color-forest);
+  background: var(--color-white); border: 1px solid var(--color-line); box-shadow: var(--shadow);
+  cursor: pointer; transition: opacity 0.2s, background 0.2s;
+}
+.carousel-btn:hover { background: var(--color-mint); }
+.carousel-btn:disabled { opacity: 0; pointer-events: none; }   /* hidden at either end */
+.carousel-btn--prev { left: -24px; }
+.carousel-btn--next { right: -24px; }
+
 
 /* ==========================================================================
    10. PROJECTS (Our Clients page)
@@ -421,8 +449,14 @@ img { max-width: 100%; display: block; }
   width: 10px; height: 1.5px; background: var(--color-sage);
 }
 
-/* Previous Clients follows Current Projects directly, so it needs less space on top */
-#past { padding-top: 24px; }
+/* Sections that follow another list of projects directly need less space on top */
+#past, .section--flush-top { padding-top: 24px; }
+
+/* Logos link to the company's LinkedIn page */
+.logo-link { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; transition: opacity 0.2s, transform 0.2s; }
+.logo-link:hover { opacity: 0.75; transform: translateY(-2px); }
+.logo-link:focus-visible { outline: 2px solid var(--color-sage); outline-offset: 4px; border-radius: 6px; }
+.project-logo .logo-link { justify-content: inherit; }
 
 /* Previous Clients: a grid of logos with no boxes, matching the lines used
    for the projects above */
@@ -473,6 +507,37 @@ img { max-width: 100%; display: block; }
 .roles li { padding: 22px 24px; border-radius: 12px; background: var(--color-white); border: 1px solid var(--color-line); }
 .roles strong { display: block; font-family: var(--font-heading); font-size: 1.12rem; color: var(--color-forest); margin-bottom: 4px; }
 .roles span   { font-size: 0.95rem; color: var(--color-muted); }
+.roles .role-how { display: block; margin-top: 8px; font-style: normal; font-size: 0.85rem; font-weight: 600; color: var(--color-sage); }
+
+/* Org chart (Join page): a column of levels joined by a line, with a detail
+   panel beside it that changes when a level is clicked */
+.org { display: grid; grid-template-columns: minmax(260px, 1fr) 1.4fr; gap: 56px; align-items: start; }
+.org-chart { display: flex; flex-direction: column; align-items: center; }
+.org-node {
+  position: relative; width: 100%; max-width: 320px;
+  padding: 16px 20px; margin-bottom: 28px;
+  font: inherit; font-weight: 600; font-size: 0.98rem; color: var(--color-forest);
+  background: var(--color-white); border: 1.5px solid var(--color-line); border-radius: 12px;
+  cursor: pointer; transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.2s;
+}
+.org-node:last-child { margin-bottom: 0; }
+/* connector line to the next level */
+.org-node:not(:last-child)::after {
+  content: ""; position: absolute; left: 50%; top: 100%;
+  width: 1.5px; height: 28px; background: var(--color-line);
+}
+.org-node--advise { border-style: dashed; }           /* advises, rather than manages */
+.org-node:hover { border-color: var(--color-sage); transform: translateY(-1px); }
+.org-node[aria-selected="true"] { background: var(--color-forest); border-color: var(--color-forest); color: var(--color-white); }
+.org-node:focus-visible { outline: 2px solid var(--color-sage); outline-offset: 3px; }
+.org-detail {
+  background: var(--color-white); border: 1px solid var(--color-line); border-radius: var(--radius);
+  padding: 36px 40px;
+}
+.org-detail h3 { font-size: 1.5rem; }
+.org-detail p { color: var(--color-muted); }
+.org-path { font-weight: 600; color: var(--color-sage) !important; font-size: 0.95rem; }
+.org-more { font-weight: 600; font-size: 0.95rem; }
 
 
 /* ==========================================================================
@@ -538,11 +603,15 @@ img { max-width: 100%; display: block; }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .logos  { grid-template-columns: repeat(2, 1fr); gap: 32px; }
   .split  { grid-template-columns: 1fr; gap: 48px; }
+  .org    { grid-template-columns: 1fr; gap: 32px; }
   .project { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
   .project-logo { height: 90px; width: 180px; justify-content: flex-start; }
   .stack:has(> .photo) { display: block; }          /* photo drops below the text */
   .stack:has(> .photo) > .photo { margin-top: 32px; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item { flex-basis: calc((100% - 24px) / 2); }    /* two photos at a time */
+  .carousel-btn--prev { left: -8px; }
+  .carousel-btn--next { right: -8px; }
 
   /* Collapse the nav into a drop-down menu */
   .nav-toggle { display: block; }
@@ -567,7 +636,12 @@ img { max-width: 100%; display: block; }
   .page-header { padding: 64px 0 52px; }
   .grid-2, .grid-3, .form-row { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr; }
+  .gallery-item { flex-basis: 85%; }                        /* one photo, with the next peeking in */
+  .carousel-btn { width: 40px; height: 40px; font-size: 1.5rem; }
+  .carousel-btn--prev { left: 4px; }
+  .carousel-btn--next { right: 4px; }
   .grid-4 { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-4.steps { grid-template-columns: 1fr; gap: 32px; }   /* steps need full width for long words */
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
   .footer-bottom { flex-direction: column; }   /* stack copyright and "Back to top" */
   .logo-img { height: 42px; }
