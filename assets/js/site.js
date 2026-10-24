@@ -34,7 +34,9 @@ const PAGES = [
 const WHITE_LOGO_IMAGE = "images/white-logo.png";
 const BLACK_LOGO_IMAGE = "images/black-logo.png";
 
-const CONTACT_EMAIL = "emorysustainablebusiness@gmail.com";
+// Contact emails (the two presidents). Used in the footer. Add or remove
+// addresses in this list; the contact and join pages list them separately.
+const CONTACT_EMAILS = ["niels.cohen@emory.edu", "tamryn.weiss@emory.edu"];
 const INSTAGRAM_URL = "https://www.instagram.com/emorysbg/";
 const LINKEDIN_URL  = "https://www.linkedin.com/company/emory-sustainable-business-group/home/";
 
@@ -82,7 +84,7 @@ document.body.insertAdjacentHTML("beforeend", `
           <div class="socials">
             <a href="${INSTAGRAM_URL}" target="_blank" rel="noopener" aria-label="Instagram">${ICONS.instagram}</a>
             ${LINKEDIN_URL ? `<a href="${LINKEDIN_URL}" target="_blank" rel="noopener" aria-label="LinkedIn">${ICONS.linkedin}</a>` : ""}
-            <a href="mailto:${CONTACT_EMAIL}" aria-label="Email">${ICONS.email}</a>
+            <a href="mailto:${CONTACT_EMAILS.join(",")}" aria-label="Email">${ICONS.email}</a>
           </div>
         </div>
         <div>
@@ -90,7 +92,7 @@ document.body.insertAdjacentHTML("beforeend", `
           <ul>
             <li><a href="join.html">Join SBG</a></li>
             <li><a href="contact.html">Become a Client</a></li>
-            <li><a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a></li>
+            ${CONTACT_EMAILS.map(e => `<li><a href="mailto:${e}">${e}</a></li>`).join("")}
           </ul>
         </div>
       </div>
@@ -157,7 +159,7 @@ document.querySelectorAll(".avatar img, .photo img, .project-logo img, .logo-til
 const LOGO_SCALE = 0.85;
 
 function balanceLogo(img) {
-  const box = img.parentElement;
+  const box = img.closest(".project-logo, .logo-tile");   // the logo's frame (the link inside it fills the frame)
   if (!img.naturalWidth || !box) return;
   const ratio = img.naturalWidth / img.naturalHeight;
   const side = box.clientHeight * LOGO_SCALE;      // a square logo is side x side
@@ -175,3 +177,84 @@ balancedLogos.forEach(img => {
   else img.addEventListener("load", () => balanceLogo(img));
 });
 window.addEventListener("resize", () => balancedLogos.forEach(balanceLogo));
+
+
+/* ---------- 6. Org chart (Join page) ---------- */
+// Clicking a level of the chart shows its detail panel and hides the others.
+
+document.querySelectorAll("[data-orgchart]").forEach(chart => {
+  const nodes = chart.querySelectorAll(".org-node");
+  const select = node => {
+    nodes.forEach(n => {
+      const on = n === node;
+      n.setAttribute("aria-selected", on);
+      n.tabIndex = on ? 0 : -1;
+      const panel = chart.querySelector("#org-" + n.dataset.org);
+      if (panel) panel.hidden = !on;
+    });
+  };
+  nodes.forEach((node, i) => {
+    node.addEventListener("click", () => select(node));
+    // Up/down arrow keys move between levels
+    node.addEventListener("keydown", e => {
+      const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+      if (!step) return;
+      e.preventDefault();
+      const next = nodes[(i + step + nodes.length) % nodes.length];
+      select(next); next.focus();
+    });
+  });
+  select(nodes[0]);
+});
+
+
+/* ---------- 7. Photo carousel (Events gallery) ---------- */
+// Sorts the photos by date, writes each date out in words, and makes the
+// arrow buttons scroll the row one photo at a time.
+
+const GALLERY_NEWEST_FIRST = true;   // false = oldest first
+
+document.querySelectorAll("[data-carousel]").forEach(carousel => {
+  const track = carousel.querySelector(".carousel-track");
+  const prev = carousel.querySelector(".carousel-btn--prev");
+  const next = carousel.querySelector(".carousel-btn--next");
+  const items = [...track.querySelectorAll(".gallery-item")];
+
+  // Write out each date ("October 28, 2026"); undated slots say so
+  const dateOf = item => {
+    const value = item.querySelector("time")?.getAttribute("datetime");
+    return value ? new Date(value + "T12:00:00") : null;
+  };
+  items.forEach(item => {
+    const time = item.querySelector("time");
+    const date = dateOf(item);
+    if (time) time.textContent = date && !isNaN(date)
+      ? date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })
+      : "Date to come";
+  });
+
+  // Sort by date; slots without a date go last
+  items.sort((a, b) => {
+    const da = dateOf(a), db = dateOf(b);
+    if (!da || isNaN(da)) return 1;
+    if (!db || isNaN(db)) return -1;
+    return GALLERY_NEWEST_FIRST ? db - da : da - db;
+  }).forEach(item => track.appendChild(item));
+
+  // Start at the beginning (re-ordering the photos can shift the scroll position)
+  const toStart = () => { track.style.scrollBehavior = "auto"; track.scrollLeft = 0; track.style.scrollBehavior = ""; };
+  toStart();
+  window.addEventListener("load", toStart);
+
+  // Arrow buttons scroll by one photo; each hides when you reach that end
+  const step = () => items[0].getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0);
+  prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+  next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
+  const update = () => {
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+  };
+  track.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
+});

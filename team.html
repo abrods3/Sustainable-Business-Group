@@ -2,18 +2,21 @@
 <!--
   ============================================================================
   OUR TEAM PAGE  (team.html)
-  Sections: Page header, Executive Board, Board of Directors, Faculty Advisor
+  Sections: Page header, Executive Board, Board of Directors, Advisors
 
   ADDING OR CHANGING A PERSON
     Each person is one <div class="person"> ... </div> block. Copy a block
     to add someone, delete a block to remove them, and edit the name and title.
 
   HEADSHOTS
-    Save each photo as a square .jpg named after the person, in lowercase
-    with dashes:
-      Executive board:     images/team/first-last.jpg
-      Board of directors:  images/board/first-last.jpg
-    The page already points at those file names. Until a photo is added,
+    Photos are named after the POSITION, not the person, so when someone new
+    takes a role you only replace the photo file and edit the name on the page.
+      Executive board:     images/team/<position>.jpg      e.g. vp-marketing.jpg
+                           Shared roles are numbered:      president-1.jpg, president-2.jpg
+      Board of directors:  images/board/board-member-1.jpg, board-member-2.jpg, ...
+      Advisors:            images/board/advisor-1.jpg, advisor-2.jpg
+    Each person's photo file is written in their <img src="..."> below. Use a
+    square .jpg (tools/crop_headshots.py makes one). Until a photo is added,
     the person's initials are shown instead (set by data-initials="..").
   ============================================================================
 -->
@@ -53,61 +56,61 @@
 
         <div class="grid grid-4">
           <div class="person reveal">
-            <div class="avatar" data-initials="TW"><img src="images/team/tamryn-weiss.jpg" alt="Tamryn Weiss" loading="lazy"></div>
+            <div class="avatar" data-initials="TW"><img src="images/team/president-1.jpg" alt="Tamryn Weiss" loading="lazy"></div>
             <h3>Tamryn Weiss</h3>
             <p class="role">President</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="NC"><img src="images/team/niels-cohen.jpg" alt="Niels Cohen" loading="lazy"></div>
+            <div class="avatar" data-initials="NC"><img src="images/team/president-2.jpg" alt="Niels Cohen" loading="lazy"></div>
             <h3>Niels Cohen</h3>
             <p class="role">President</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="SD"><img src="images/team/sawyer-dolgins.jpg" alt="Sawyer Dolgins" loading="lazy"></div>
+            <div class="avatar" data-initials="SD"><img src="images/team/vp-business-development.jpg" alt="Sawyer Dolgins" loading="lazy"></div>
             <h3>Sawyer Dolgins</h3>
             <p class="role">VP of Business Development</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="AP"><img src="images/team/ariana-pavri.jpg" alt="Ariana Pavri" loading="lazy"></div>
+            <div class="avatar" data-initials="AP"><img src="images/team/vp-external-affairs.jpg" alt="Ariana Pavri" loading="lazy"></div>
             <h3>Ariana Pavri</h3>
             <p class="role">VP of External Affairs</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="RV"><img src="images/team/riana-verma.jpg" alt="Riana Verma" loading="lazy"></div>
+            <div class="avatar" data-initials="RV"><img src="images/team/vp-marketing.jpg" alt="Riana Verma" loading="lazy"></div>
             <h3>Riana Verma</h3>
             <p class="role">VP of Marketing</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="JJ"><img src="images/team/justin-jang.jpg" alt="Justin Jang" loading="lazy"></div>
+            <div class="avatar" data-initials="JJ"><img src="images/team/vp-education-1.jpg" alt="Justin Jang" loading="lazy"></div>
             <h3>Justin Jang</h3>
             <p class="role">VP of Education</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="IK"><img src="images/team/irina-kolarova.jpg" alt="Irina Kolarova" loading="lazy"></div>
+            <div class="avatar" data-initials="IK"><img src="images/team/vp-education-2.jpg" alt="Irina Kolarova" loading="lazy"></div>
             <h3>Irina Kolarova</h3>
             <p class="role">VP of Education</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="AB"><img src="images/team/alexandra-brodsky.jpg" alt="Alexandra Brodsky" loading="lazy"></div>
+            <div class="avatar" data-initials="AB"><img src="images/team/vp-technical-development.jpg" alt="Alexandra Brodsky" loading="lazy"></div>
             <h3>Alexandra Brodsky</h3>
             <p class="role">VP of Technical Development</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="AS"><img src="images/team/astor-stein.jpg" alt="Astor Stein" loading="lazy"></div>
+            <div class="avatar" data-initials="AS"><img src="images/team/vp-board-engagement.jpg" alt="Astor Stein" loading="lazy"></div>
             <h3>Astor Stein</h3>
             <p class="role">VP of Board Engagement</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="JM"><img src="images/team/jack-maney.jpg" alt="Jack Maney" loading="lazy"></div>
+            <div class="avatar" data-initials="JM"><img src="images/team/vp-operations.jpg" alt="Jack Maney" loading="lazy"></div>
             <h3>Jack Maney</h3>
             <p class="role">VP of Operations</p>
           </div>
@@ -131,47 +134,47 @@
         <div class="grid grid-4">
 
           <div class="person reveal">
-            <div class="avatar" data-initials="AB"><img src="images/board/abigail-baisley.jpg" alt="Abigail Baisley" loading="lazy"></div>
+            <div class="avatar" data-initials="AB"><img src="images/board/board-member-1.jpg" alt="Abigail Baisley" loading="lazy"></div>
             <h3>Abigail Baisley</h3>
             <p class="role">MIT Sloan MBA Candidate </p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="JR"><img src="images/board/john-rose.jpg" alt="John Rose" loading="lazy"></div>
+            <div class="avatar" data-initials="JR"><img src="images/board/board-member-2.jpg" alt="John Rose" loading="lazy"></div>
             <h3>John Rose</h3>
             <p class="role">Energy @ Yale School of the Environment</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="LR"><img src="images/board/lindsey-reina.jpg" alt="Lindsey Reina" loading="lazy"></div>
+            <div class="avatar" data-initials="LR"><img src="images/board/board-member-3.jpg" alt="Lindsey Reina" loading="lazy"></div>
             <h3>Lindsey Reina</h3>
             <p class="role">Senior Associate, Liquidity Trading</p>
             <p class="org">Morgan Stanley</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="JO"><img src="images/board/joe-owens.jpg" alt="Joe Owens" loading="lazy"></div>
+            <div class="avatar" data-initials="JO"><img src="images/board/board-member-4.jpg" alt="Joe Owens" loading="lazy"></div>
             <h3>Joe Owens</h3>
             <p class="role">Energy, Sustainability, and Infrastructure Consultant</p>
             <p class="org">Guidehouse</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="BC"><img src="images/board/brian-chasanoff.jpg" alt="Brian Chasanoff" loading="lazy"></div>
+            <div class="avatar" data-initials="BC"><img src="images/board/board-member-5.jpg" alt="Brian Chasanoff" loading="lazy"></div>
             <h3>Brian Chasanoff</h3>
             <p class="role">Management Consulting Associate</p>
             <p class="org">PwC</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="JM"><img src="images/board/justin-mcintosh.jpg" alt="Justin McIntosh" loading="lazy"></div>
+            <div class="avatar" data-initials="JM"><img src="images/board/board-member-6.jpg" alt="Justin McIntosh" loading="lazy"></div>
             <h3>Justin McIntosh</h3>
             <p class="role">Strategy & Transformation Associate Consultant</p>
             <p class="org">Capgemini Invent</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="JF"><img src="images/board/jared-feuer.jpg" alt="Jared Feuer" loading="lazy"></div>
+            <div class="avatar" data-initials="JF"><img src="images/board/board-member-7.jpg" alt="Jared Feuer" loading="lazy"></div>
             <h3>Jared Feuer</h3>
             <p class="role">Associate, Origination</p>
             <p class="org">Invenergy</p>
@@ -191,14 +194,14 @@
         <div class="grid grid-4">
 
           <div class="person reveal">
-            <div class="avatar" data-initials="AU"><img src="images/board/alex-urist.jpg" alt="Alex Urist" loading="lazy"></div>
+            <div class="avatar" data-initials="AU"><img src="images/board/advisor-1.jpg" alt="Alex Urist" loading="lazy"></div>
             <h3>Alex Urist</h3>
             <p class="role">Vice President and Co-Founder</p>
             <p class="org">XCharge North America</p>
           </div>
 
           <div class="person reveal">
-            <div class="avatar" data-initials="BJ"><img src="images/team/ben-jordan.jpg" alt="Ben Jordan" loading="lazy"></div>
+            <div class="avatar" data-initials="BJ"><img src="images/board/advisor-2.jpg" alt="Ben Jordan" loading="lazy"></div>
             <h3>Ben Jordan</h3>
             <p class="role">Advisor</p>
           </div>
