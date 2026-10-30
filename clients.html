@@ -2,7 +2,7 @@
 <!--
   ============================================================================
   OUR CLIENTS PAGE  (clients.html)
-  Sections: Page header, Current Projects, Past Semester, Previous Clients, Work With Us
+  Sections: Page header, Current Projects, Past Projects, Previous Clients, Work With Us
 
   HOW TO ADD A PROJECT
     Copy one whole <article class="project"> ... </article> block and paste it
@@ -10,11 +10,10 @@
     is drawn between projects automatically. Then edit the text.
 
   AT THE END OF A SEMESTER
-    1. Move last semester's clients from PAST SEMESTER to PREVIOUS CLIENTS:
-       delete each <article> block and add the client's logo to PREVIOUS
-       CLIENTS (copy one <div class="logo-tile"> block there).
-    2. Move this semester's <article> blocks from CURRENT PROJECTS into
-       PAST SEMESTER.
+    Move this semester's <article> blocks from CURRENT PROJECTS to the top of
+    PAST PROJECTS. To shorten PAST PROJECTS, delete older <article> blocks
+    and add those clients' logos to PREVIOUS CLIENTS instead (copy one
+    <div class="logo-tile"> block there).
 
   LINKEDIN LINKS
     Each logo links to the company's LinkedIn page. To change a link, edit the
@@ -183,14 +182,14 @@
     <!-- ===== END SECTION: CURRENT PROJECTS ===== -->
 
 
-    <!-- ===== SECTION: PAST SEMESTER =====
-         Full write-ups of last semester's projects. At the end of each semester,
-         move the current projects here and move these clients' logos down to
-         PREVIOUS CLIENTS. -->
+    <!-- ===== SECTION: PAST PROJECTS =====
+         Full write-ups of past projects, newest first. Clients listed here are
+         left out of PREVIOUS CLIENTS below so no logo shows twice. -->
     <section class="section section--flush-top" id="last-semester">
       <div class="container">
         <div class="section-intro reveal">
-          <h2>Past semesters</h2>
+          <span class="eyebrow">Past Projects</span>
+          <h2>Previous engagements</h2>
         </div>
 
         <div class="project-list">
@@ -220,10 +219,11 @@
             </div>
           </article>
 
-          <!-- ----- Past project: XCharge ----- -->
+          <!-- ----- Past project: XCharge (three projects over three semesters) -----
+               To add another XCharge project, copy one <div class="project-phase"> block. -->
           <article class="project reveal">
             <div class="project-visual">
-              <!-- LOGO: save as images/clients/xcharge.png -->
+              <!-- LOGO: images/clients/xcharge.png -->
               <div class="project-logo" data-label="Logo: XCharge">
                 <a class="logo-link" href="https://www.linkedin.com/company/xcharge-energy/" target="_blank" rel="noopener" aria-label="XCharge on LinkedIn">
                   <img src="images/clients/xcharge.png" alt="XCharge logo">
@@ -231,17 +231,135 @@
               </div>
             </div>
             <div class="project-body">
-              <h3>XCharge North America: EV Charging Incentive Collection & Automation Framework</h3>
-              <p>[PLACEHOLDER: describe what the team worked on for XCharge.]</p>
+              <h3>XCharge North America</h3>
+              <p>SBG has worked with XCharge, an EV charging company, across three semesters and three projects.</p>
+              <div class="project-phase">
+                <h4>Hospitality Business Case <span class="project-term">Spring 2025</span></h4>
+                <ul class="bullets">
+                  <li>Sized the hotel and hospitality market for EV charging and planned how to engage key stakeholders.</li>
+                  <li>Compared one-time hardware sales with recurring revenue models.</li>
+                  <li>Ran ROI and IRR analysis to refine XCharge's profit-sharing and go-to-market approach.</li>
+                </ul>
+              </div>
+              <div class="project-phase">
+                <h4>Data and Marketing Development <span class="project-term">Fall 2025</span></h4>
+                <ul class="bullets">
+                  <li>Analyzed real-world charging data to find ways to improve operations.</li>
+                  <li>Created case studies and marketing materials to support business growth.</li>
+                </ul>
+              </div>
+              <div class="project-phase">
+                <h4>EV Charging Incentives <span class="project-term">Spring 2026</span></h4>
+                <ul class="bullets">
+                  <li>Compiled EV charging incentives across all 50 states and built a website to search them.</li>
+                  <li>Gives XCharge a state-by-state view of incentives to guide where to expand, support sales conversations and show customers which subsidies they can use.</li>
+                </ul>
+              </div>
               <ul class="bullets">
-                <li>Four SBG consultants continued working with XCharge through the company's internship program after the project ended.</li>
+                <li>Four SBG consultants continued working with XCharge through the company's internship program.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- ----- Past project: Atlanta Department of Transportation ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: images/clients/atlanta-department-of-transportation.png -->
+              <div class="project-logo" data-label="Logo: Atlanta Department of Transportation">
+                <!-- LINKEDIN: no company page found yet. To link this logo, wrap the <img> in
+                     <a class="logo-link" href="https://www.linkedin.com/company/..." target="_blank" rel="noopener"> like the others. -->
+                <img src="images/clients/atlanta-department-of-transportation.png" alt="Atlanta Department of Transportation logo">
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Atlanta Department of Transportation: Shared Micromobility Compliance Report Card</h3>
+              <p>Built a report card ATLDOT can use to track how well shared scooter and bike operators follow the city's rules.</p>
+              <ul class="bullets">
+                <li>Turned the city's administrative regulations into clear, trackable performance metrics, and benchmarked Atlanta's standards against other leading cities.</li>
+                <li>Designed a data-driven reporting system, with a documented methodology, for monitoring operator compliance, spotting performance gaps and sharing findings through regular evaluations.</li>
+              </ul>
+            </div>
+          </article>
+          <!-- ----- Past project: Finless Foods ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: images/clients/finless-foods.png -->
+              <div class="project-logo" data-label="Logo: Finless Foods">
+                <a class="logo-link" href="https://www.linkedin.com/company/finlessfoods/" target="_blank" rel="noopener" aria-label="Finless Foods on LinkedIn">
+                  <img src="images/clients/finless-foods.png" alt="Finless Foods logo">
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Finless Foods: Business Case for Cell-Cultured Seafood and Collagen</h3>
+              <p>Identified the strongest market opportunities for Finless Foods' cell-cultured seafood and collagen ingredients.</p>
+              <ul class="bullets">
+                <li>Analyzed potential uses across the food, beverage and supplement industries, and identified strategic partners throughout the supply chain.</li>
+                <li>Delivered a prioritized list of applications and a data-backed pricing strategy to help commercialize these sustainable protein alternatives.</li>
+              </ul>
+            </div>
+          </article>
+          <!-- ----- Past project: Horizon Energy South ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: images/clients/horizon-energy-south.png -->
+              <div class="project-logo" data-label="Logo: Horizon Energy South">
+                <!-- LINKEDIN: no company page found yet. To link this logo, wrap the <img> in
+                     <a class="logo-link" href="https://www.linkedin.com/company/..." target="_blank" rel="noopener"> like the others. -->
+                <img src="images/clients/horizon-energy-south.png" alt="Horizon Energy South logo">
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Horizon Energy South: Profitability and Project Selection Model</h3>
+              <p>Built a financial model to help Horizon choose energy efficiency projects in low-income housing across Georgia.</p>
+              <ul class="bullets">
+                <li>Created a flexible tool that combines project type, property size, labor costs and operating expenses to estimate the profitability of potential projects.</li>
+                <li>Identified high-value target properties that fit Horizon's strategic and financial goals.</li>
+              </ul>
+            </div>
+          </article>
+          <!-- ----- Past project: Cleanr ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: images/clients/cleanr.png -->
+              <div class="project-logo" data-label="Logo: Cleanr">
+                <a class="logo-link" href="https://www.linkedin.com/company/cleanrlife/" target="_blank" rel="noopener" aria-label="Cleanr on LinkedIn">
+                  <img src="images/clients/cleanr.png" alt="Cleanr logo">
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Cleanr: Microplastic Filtration at Emory</h3>
+              <p>Made the case for installing Cleanr's microplastic filtration systems in Emory's laundry facilities.</p>
+              <ul class="bullets">
+                <li>Mapped campus laundry infrastructure, ran a cost-benefit analysis, and identified key stakeholders and funding sources.</li>
+                <li>Delivered a pitch deck with an implementation roadmap.</li>
+              </ul>
+            </div>
+          </article>
+          <!-- ----- Past project: Interface ----- -->
+          <article class="project reveal">
+            <div class="project-visual">
+              <!-- LOGO: images/clients/interface.png -->
+              <div class="project-logo" data-label="Logo: Interface">
+                <a class="logo-link" href="https://www.linkedin.com/company/interface/" target="_blank" rel="noopener" aria-label="Interface on LinkedIn">
+                  <img src="images/clients/interface.png" alt="Interface logo">
+                </a>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Interface: Carpet Tile Reuse and Resale</h3>
+              <p>Helped Interface find where to grow its carpet tile reuse and resale program.</p>
+              <ul class="bullets">
+                <li>Analyzed Interface's historical sales and recycling data to find high-opportunity regions.</li>
+                <li>Surveyed potential logistics and resale partners in those regions, and delivered a heat map with prioritized recommendations.</li>
               </ul>
             </div>
           </article>
         </div>
       </div>
     </section>
-    <!-- ===== END SECTION: PAST SEMESTER ===== -->
+    <!-- ===== END SECTION: PAST PROJECTS ===== -->
 
 
     <!-- ===== SECTION: PREVIOUS CLIENTS =====
@@ -258,31 +376,6 @@
            <div class="logo-tile" data-label="CAVA">
             <a class="logo-link" href="https://www.linkedin.com/company/cava-/" target="_blank" rel="noopener" aria-label="CAVA on LinkedIn">
               <img src="images/clients/cava.png" alt="CAVA">
-            </a>
-          </div>
-          <div class="logo-tile" data-label="Atlanta Department of Transportation">
-              <a class="logo-link" href="https://www.linkedin.com/company/atltransportation/" target="_blank" rel="noopener" aria-label="Atlanta Department of Transportation on LinkedIn">
-                <img src="images/clients/atlanta-department-of-transportation.png" alt="Atlanta Department of Transportation">
-              </a>
-          </div>
-          <div class="logo-tile" data-label="Finless Foods">
-            <a class="logo-link" href="https://www.linkedin.com/company/finlessfoods/" target="_blank" rel="noopener" aria-label="Finless Foods on LinkedIn">
-              <img src="images/clients/finless-foods.png" alt="Finless Foods">
-            </a>
-          </div>
-          <div class="logo-tile" data-label="Horizon Energy South">
-            <a class="logo-link" href="https://www.linkedin.com/company/horizon-energy-south/" target="_blank" rel="noopener" aria-label="Horizon Energy South on LinkedIn">
-              <img src="images/clients/horizon-energy-south.png" alt="Horizon Energy South">
-            </a>
-          </div>
-          <div class="logo-tile" data-label="Cleanr">
-            <a class="logo-link" href="https://www.linkedin.com/company/cleanrlife/" target="_blank" rel="noopener" aria-label="Cleanr on LinkedIn">
-              <img src="images/clients/cleanr.png" alt="Cleanr">
-            </a>
-          </div>
-          <div class="logo-tile" data-label="Interface">
-            <a class="logo-link" href="https://www.linkedin.com/company/interface/" target="_blank" rel="noopener" aria-label="Interface on LinkedIn">
-              <img src="images/clients/interface.png" alt="Interface">
             </a>
           </div>
           <div class="logo-tile" data-label="Goodr">
