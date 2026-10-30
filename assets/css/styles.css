@@ -432,6 +432,16 @@ img { max-width: 100%; display: block; }
 .project-body h3 { font-size: 1.45rem; margin-bottom: 12px; }
 .project-body p { color: var(--color-muted); }
 
+/* One client with several projects (e.g. XCharge): each project is a sub-block */
+.project-phase { margin-top: 24px; }
+.project-phase h4 { font-family: var(--font-body); font-size: 1rem; font-weight: 600; margin: 0; }
+.project-term {
+  margin-left: 8px;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--color-sage);
+}
+.project-phase .bullets { margin-top: 10px; }
+
 /* Status and industry, shown as small labels separated by a dot */
 .project-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0; margin-bottom: 10px; }
 .tag {
