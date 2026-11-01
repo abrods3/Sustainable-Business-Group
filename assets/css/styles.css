@@ -296,6 +296,33 @@ img { max-width: 100%; display: block; }
 .step h3 { font-size: 1.12rem; }
 .step p  { color: var(--color-muted); font-size: 0.95rem; margin: 0; }
 
+/* Our History timeline: date on the left, a line with a dot, then the milestone */
+.timeline { list-style: none; margin: 0; padding: 0; position: relative; max-width: 900px; }
+.timeline::before {                      /* the vertical line */
+  content: ""; position: absolute; top: 10px; bottom: 10px; left: 168px;
+  width: 2px; background: var(--color-line);
+}
+.timeline-item {
+  position: relative;
+  display: grid; grid-template-columns: 140px 1fr; column-gap: 58px;
+  padding-bottom: 44px;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {                 /* the dot */
+  content: ""; position: absolute; top: 6px; left: 162px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--color-white); border: 2px solid var(--color-sage);
+}
+.timeline-item--highlight::before { background: var(--color-sage); }   /* filled dot for big milestones */
+.timeline-date {
+  text-align: right; padding-top: 3px;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--color-sage);
+}
+.timeline-body h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.timeline-body p  { color: var(--color-muted); font-size: 0.97rem; margin: 0; }
+.timeline-body .bullets { margin-top: 12px; }
+
 
 /* ==========================================================================
    9. PEOPLE (executive board, board of directors)
@@ -655,4 +682,9 @@ img { max-width: 100%; display: block; }
   .footer-grid { grid-template-columns: 1fr; gap: 40px; }
   .footer-bottom { flex-direction: column; }   /* stack copyright and "Back to top" */
   .logo-img { height: 42px; }
+  /* Timeline: line on the far left, date above each milestone */
+  .timeline::before { left: 6px; }
+  .timeline-item { grid-template-columns: 1fr; padding-left: 34px; padding-bottom: 36px; }
+  .timeline-item::before { left: 0; top: 2px; }
+  .timeline-date { text-align: left; padding: 0 0 6px; }
 }
