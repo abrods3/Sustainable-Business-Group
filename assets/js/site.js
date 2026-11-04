@@ -264,17 +264,18 @@ document.querySelectorAll("[data-carousel]").forEach(carousel => {
 
 /* ---------- 8. LinkedIn links (Our Team page) ---------- */
 // Each person's LinkedIn URL goes in data-linkedin="..." on their
-// <div class="person">. If it is filled in, a LinkedIn icon is added under
-// their name and the name itself links to the profile. Leave it empty ("")
-// and nothing is shown.
+// <div class="person">. If it is filled in, clicking their headshot or name
+// opens the profile. Leave it empty ("") and nothing links.
 
 document.querySelectorAll(".person[data-linkedin]").forEach(person => {
   const url = person.dataset.linkedin.trim();
   if (!url) return;
-  const name = person.querySelector("h3")?.textContent.trim() || "This person";
-  const link = `href="${url}" target="_blank" rel="noopener"`;
   const h3 = person.querySelector("h3");
+  const name = h3?.textContent.trim() || "This person";
+  const link = `href="${url}" target="_blank" rel="noopener"`;
   if (h3) h3.innerHTML = `<a ${link}>${h3.innerHTML}</a>`;
-  person.insertAdjacentHTML("beforeend",
-    `<a class="person-linkedin" ${link} aria-label="${name} on LinkedIn">${ICONS.linkedin}</a>`);
+  // A clear link laid over the headshot (the name link above is the one screen readers use)
+  person.querySelector(".avatar")?.insertAdjacentHTML("beforeend",
+    `<a class="avatar-link" ${link} aria-label="${name} on LinkedIn" tabindex="-1"></a>`);
+  person.classList.add("has-link");
 });
