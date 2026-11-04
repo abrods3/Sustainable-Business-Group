@@ -7,6 +7,8 @@
      2. Handles the mobile menu and the header shadow on scroll.
      3. Fades sections in as you scroll (optional).
      4. Shows initials in place of any headshot photo that is missing.
+     5-8. Client logo sizing, the org chart, the photo carousel, and
+        LinkedIn links on the team page.
 
    TO ADD, REMOVE OR RENAME A PAGE IN THE MENU
      Edit the PAGES list just below. Each line is one menu link:
@@ -257,4 +259,22 @@ document.querySelectorAll("[data-carousel]").forEach(carousel => {
   track.addEventListener("scroll", update, { passive: true });
   window.addEventListener("resize", update);
   update();
+});
+
+
+/* ---------- 8. LinkedIn links (Our Team page) ---------- */
+// Each person's LinkedIn URL goes in data-linkedin="..." on their
+// <div class="person">. If it is filled in, a LinkedIn icon is added under
+// their name and the name itself links to the profile. Leave it empty ("")
+// and nothing is shown.
+
+document.querySelectorAll(".person[data-linkedin]").forEach(person => {
+  const url = person.dataset.linkedin.trim();
+  if (!url) return;
+  const name = person.querySelector("h3")?.textContent.trim() || "This person";
+  const link = `href="${url}" target="_blank" rel="noopener"`;
+  const h3 = person.querySelector("h3");
+  if (h3) h3.innerHTML = `<a ${link}>${h3.innerHTML}</a>`;
+  person.insertAdjacentHTML("beforeend",
+    `<a class="person-linkedin" ${link} aria-label="${name} on LinkedIn">${ICONS.linkedin}</a>`);
 });
