@@ -351,17 +351,12 @@ img { max-width: 100%; display: block; }
 .person .role { color: var(--color-muted); font-size: 0.9rem; margin: 0 0 4px; }
 .person .org  { display: block; color: var(--color-sage); font-size: 0.85rem; font-weight: 500; margin: 0; }   /* display: block so the Join page's org chart styles don't apply */
 
-/* LinkedIn icon under each person (added by site.js part 8 from data-linkedin) */
-.person-linkedin {
-  display: inline-grid; place-items: center; width: 32px; height: 32px; margin-top: 10px;
-  border-radius: 50%; color: var(--color-sage); border: 1px solid var(--color-line);
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-}
+/* LinkedIn links: the headshot and name open the profile (site.js part 8) */
+.avatar-link { position: absolute; inset: 0; z-index: 1; }
+.avatar img { transition: transform 0.35s ease; }
+.person.has-link .avatar:hover img { transform: scale(1.04); }
 .person h3 a { color: inherit; text-decoration: none; }
-.person h3 a:hover { color: var(--color-sage); }
-.person-linkedin svg { width: 15px; height: 15px; }
-.person-linkedin:hover { background: var(--color-sage); border-color: var(--color-sage); color: var(--color-white); }
-.person-linkedin:focus-visible { outline: 2px solid var(--color-sage); outline-offset: 3px; }
+.person h3 a:hover, .person.has-link:has(.avatar:hover) h3 a { color: var(--color-sage); }
 
 
 /* ==========================================================================
