@@ -7,8 +7,9 @@
      2. Handles the mobile menu and the header shadow on scroll.
      3. Fades sections in as you scroll (optional).
      4. Shows initials in place of any headshot photo that is missing.
-     5-8. Client logo sizing, the org chart, the photo carousel, and
-        LinkedIn links on the team page.
+     5-9. Client logo sizing, the org chart, the photo carousel,
+        LinkedIn links on the team page, and the industry filter on the
+        clients page.
 
    TO ADD, REMOVE OR RENAME A PAGE IN THE MENU
      Edit the PAGES list just below. Each line is one menu link:
@@ -278,4 +279,34 @@ document.querySelectorAll(".person[data-linkedin]").forEach(person => {
   person.querySelector(".avatar")?.insertAdjacentHTML("beforeend",
     `<a class="avatar-link" ${link} aria-label="${name} on LinkedIn" tabindex="-1"></a>`);
   person.classList.add("has-link");
+});
+
+
+/* ---------- 9. Industry filter (Our Clients page) ---------- */
+// Makes one button per <div class="industry-group">, using its
+// data-industry name, plus an "All" button. Clicking a button shows only
+// that industry's projects.
+
+document.querySelectorAll("[data-industry-filter]").forEach(bar => {
+  const groups = [...bar.parentElement.querySelectorAll(".industry-group")];
+  const count = el => el.querySelectorAll(".project").length;
+  const options = [{ label: "All", groups, total: groups.reduce((n, g) => n + count(g), 0) },
+                   ...groups.map(g => ({ label: g.dataset.industry, groups: [g], total: count(g) }))];
+
+  const buttons = options.map(opt => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.innerHTML = `${opt.label}<span class="count">${opt.total}</span>`;
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => b.setAttribute("aria-pressed", b === btn));
+      groups.forEach(g => {
+        g.hidden = !opt.groups.includes(g);
+        // filtered-in items may not have faded in yet
+        g.querySelectorAll(".reveal").forEach(el => el.classList.add("is-visible"));
+      });
+    });
+    bar.appendChild(btn);
+    return btn;
+  });
+  buttons[0].setAttribute("aria-pressed", "true");
 });

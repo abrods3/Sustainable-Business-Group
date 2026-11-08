@@ -484,6 +484,41 @@ img { max-width: 100%; display: block; }
 .tag + .tag::before { content: "\00B7"; margin: 0 10px; color: var(--color-muted); }
 .tag--gold { color: #9a7428; }
 
+/* Past projects: industry filter buttons (made by site.js part 9) */
+.industry-filter { display: flex; flex-wrap: wrap; gap: 10px; margin: -16px 0 40px; }
+.industry-filter button {
+  font: inherit; font-size: 0.88rem; font-weight: 500; cursor: pointer;
+  padding: 8px 16px; border-radius: 999px;
+  border: 1px solid var(--color-line); background: var(--color-white); color: var(--color-ink);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.industry-filter button:hover { border-color: var(--color-sage); color: var(--color-sage); }
+.industry-filter button[aria-pressed="true"] { background: var(--color-forest); border-color: var(--color-forest); color: var(--color-white); }
+.industry-filter .count { margin-left: 6px; opacity: 0.6; font-size: 0.8rem; }
+
+/* Past projects: one block per industry, with a small heading */
+.industry-group + .industry-group { margin-top: 56px; }
+.industry-group[hidden] { display: none; }
+.industry-heading {
+  margin: 0 0 4px;
+  font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-sage);
+}
+.industry-group .project { padding: 36px 0; }
+
+/* "Project details" drop-down on past projects */
+.project-details { margin-top: 14px; }
+.project-details summary {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer; list-style: none;
+  font-size: 0.88rem; font-weight: 600; color: var(--color-sage);
+}
+.project-details summary::-webkit-details-marker { display: none; }
+.project-details summary::after { content: "+"; font-size: 1.1rem; line-height: 1; }
+.project-details[open] summary::after { content: "\2212"; }   /* minus sign when open */
+.project-details summary:hover { text-decoration: underline; }
+.project-details summary:focus-visible { outline: 2px solid var(--color-sage); outline-offset: 3px; border-radius: 4px; }
+.project-details > .bullets:first-of-type, .project-details > .project-phase:first-of-type { margin-top: 8px; }
+
 /* Details list with short dashes */
 .bullets { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
 .bullets li { position: relative; padding-left: 22px; font-size: 0.95rem; color: var(--color-ink); }
