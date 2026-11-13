@@ -39,7 +39,7 @@ const BLACK_LOGO_IMAGE = "images/black-logo.png";
 
 // Contact emails (the two presidents). Used in the footer. Add or remove
 // addresses in this list; the contact and join pages list them separately.
-const CONTACT_EMAILS = ["niels.cohen@emory.edu", "tamryn.weiss@emory.edu"];
+const CONTACT_EMAILS = ["ariana.pavri@emory.edu", "irina.kolarova@emory.edu"];
 const INSTAGRAM_URL = "https://www.instagram.com/emorysbg/";
 const LINKEDIN_URL  = "https://www.linkedin.com/company/emory-sustainable-business-group/home/";
 
